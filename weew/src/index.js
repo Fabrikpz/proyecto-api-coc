@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Home from './Home';
-import CamavingaPage from './CamavingaPage';
+import App from './Home';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -13,8 +12,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/">
-        <Route index element={<Home/>} />
-        <Route path="camavinga" element={<CamavingaPage/>} />
+        <Route index element={<App/>} />
         </Route>
       </Routes>
     </BrowserRouter>
