@@ -2,33 +2,29 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const app = express();
-const port = 3500; 
+const port = 3500;
+const clashApi = require('clash-of-clans-api');
 
 app.use(express.json());
 app.use(cors());
 
-app.get('/getClashOfClansData/qvyuvrpup', async (req, res) => {
-    const playerTag = req.params.playerTag;
-    const apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjRmZDZiMWIxLTg1M2MtNDQ3Mi05OWI5LTYwMTNjMDQ3MmE2NyIsImlhdCI6MTY5NDAwODc3NCwic3ViIjoiZGV2ZWxvcGVyL2IxYjgyMzgyLTIxODAtNjVlNS0zZjRhLTk3N2RmNTdkNDg5NCIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjAuMC4wLjAiXSwidHlwZSI6ImNsaWVudCJ9XX0.Bwa4_X6dbHzhU4H8PgehoZEX-XEkfEtNtzND3eNyrv_TL1eleENDB_FwFRfFkicWq8V41pSEIJft0O8z46BTIA';
-    const apiUrl = `https://api.clashofclans.com/v1/players/%23${playerTag}`;
+const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImJmYzdmYzRkLTgzYTEtNDhlMy1iYzllLWUzOGE0NjRiMjBjNCIsImlhdCI6MTY5NDAzNDAxMiwic3ViIjoiZGV2ZWxvcGVyL2IxYjgyMzgyLTIxODAtNjVlNS0zZjRhLTk3N2RmNTdkNDg5NCIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjE5MC4yMjkuMTMxLjIzNiJdLCJ0eXBlIjoiY2xpZW50In1dfQ.s05si08BH54hogrZ0lAK59VU7OmklM7yR_hHmr7O4qLpxMXWK5khD31ZPdKkn5I9uz2DLZSun_w51ea_jzUlfQ";
+let client = clashApi({
+    token: token,
+});
 
+app.get('/getClashOfClansData/%23qvyuvrpup', async (req, res) => {
+
+    const playerTag = '#QVYUVRPUP';
     try {
-        const response = await axios.get(apiUrl, {
-            headers: {
-                'Authorization': `Bearer${apiKey}`
-            }
-        });
-
-        res.send(response.data);
-        res.json(response.data);
+        const player = await client.playerByTag(playerTag);
+        res.json(player);
     } catch (error) {
-        console.error(`Error obtaining info from API: ${error.message}`);
-        res.status(500).json({ error: 'Error obtaining user info' });
+        console.error(`Error getting info from API: ${error.message}`);
+        res.status(404).json({ reason: 'notFound', message: 'Not found with tag' });
     }
 });
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en el puerto ${port}`);
 });
-
-module.exports = app;
