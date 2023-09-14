@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div id="rectangulo">
-      <h1>CLASH OF CLANS STATS #QVYUVRPUP</h1>
+      <h1 class="tex">CLASH OF CLANS STATS #QVYUVRPUP</h1>
       <p>INGRESE SU ID:</p>
       <input class="mimi" onChange={handleInput} value={input} placeholder="Ingrese su ID"></input>
       <p></p>
