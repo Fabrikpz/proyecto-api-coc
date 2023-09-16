@@ -14,7 +14,6 @@ root.render(
       <Routes>
         <Route path="/">
           <Route index element={<App />} />
-          <Route path="/calculadora" element={<Calculadora />} />
         </Route>
       </Routes>
     </BrowserRouter>

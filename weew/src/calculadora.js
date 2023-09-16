@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 
 function Calculadora(props) {
   return (
@@ -8,7 +8,4 @@ function Calculadora(props) {
   );
 }
 
-export default Calculadora;
-
-
-
+export default Calculadora;*/

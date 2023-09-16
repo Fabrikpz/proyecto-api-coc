@@ -4,20 +4,27 @@ const cors = require('cors');
 const app = express();
 const port = 3500;
 const clashApi = require('clash-of-clans-api');
+const { Client } = require('clashofclans.js');
+const client = new Client();
+/*const dotenv = require('dotenv');
+dotenv.config({ path: './config.env' });*/
 
 app.use(express.json());
 app.use(cors());
 
-const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjcxOGU1YjhlLTM4ODAtNGVkMy1hNDRlLTc1NzA3NDhjODRjMiIsImlhdCI6MTY5NDYwOTkxOCwic3ViIjoiZGV2ZWxvcGVyL2IxYjgyMzgyLTIxODAtNjVlNS0zZjRhLTk3N2RmNTdkNDg5NCIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjE5MC45Ni4xMjAuMiJdLCJ0eXBlIjoiY2xpZW50In1dfQ.DmXzvWcVhhv8kj2AZpcx8o5ppxfF97jPE9YsD1wfN_HiEoQIPAChODX3IQJfi5HPwL4mmSiDVYWPReXvR-Ko4g";
-let client = clashApi({
-    token: token,
-});
+/*const mail = process.env.EMAIL;
+const pass = process.env.PASSWORD;*/
+
+(async function () {
+    await client.login({ email: "que chingados te importa we :v", password: "que chingados te importa we :vvvv"});
+})();
+
 //9JLGVYRJ2
 app.get(`/getClashOfClansData/%23:input`, async (req, res) => {
     const input = req.params.input;
     const playerTag = `#${input}`;
     try {
-        const player = await client.playerByTag(playerTag);
+        const player = await client.getPlayer(playerTag);
         res.json(player);
     } catch (error) {
         console.error(`Error getting info from API: ${error.message}`);
