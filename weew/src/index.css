@@ -13,7 +13,7 @@ body {
 #rectangulo {
   width: auto;
   height: 350px;
-  background-color: #000000;
+  background-color: rgb(0, 0, 0);
   margin: 5%;
   border-radius: 50px;
   border: #262525;
@@ -30,4 +30,8 @@ code {
 
 .mimi{
 text-align: center;
+}
+
+.trophiesdiv{
+  display: flex;
 }

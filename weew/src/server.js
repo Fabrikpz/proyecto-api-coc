@@ -1,5 +1,4 @@
 const express = require('express');
-const axios = require('axios');
 const cors = require('cors');
 const app = express();
 const port = 3500;
@@ -16,7 +15,7 @@ app.use(cors());
 const pass = process.env.PASSWORD;*/
 
 (async function () {
-    await client.login({ email: "que chingados te importa we :v", password: "que chingados te importa we :vvvv"});
+    await client.login({ email: "fabrisilveyra@gmail.com", password: "fortheemperor"});
 })();
 
 //9JLGVYRJ2
