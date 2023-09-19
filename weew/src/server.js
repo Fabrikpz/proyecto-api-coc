@@ -18,7 +18,7 @@ const pass = process.env.PASSWORD;*/
     await client.login({ email: "fabrisilveyra@gmail.com", password: "fortheemperor"});
 })();
 
-//9JLGVYRJ2
+//LPRJ008RU
 app.get(`/getClashOfClansData/%23:input`, async (req, res) => {
     const input = req.params.input;
     const playerTag = `#${input}`;

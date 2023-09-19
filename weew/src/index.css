@@ -12,7 +12,7 @@ body {
 
 #rectangulo {
   width: auto;
-  height: 350px;
+  height: auto;
   background-color: rgb(0, 0, 0);
   margin: 5%;
   border-radius: 50px;
@@ -32,6 +32,29 @@ code {
 text-align: center;
 }
 
-.trophiesdiv{
+.jugador {
+  text-align: center;
+}
+
+.nombre-jugador {
   display: flex;
+  font-weight: bold;
+  font-size: 23px;
+  margin-left: 35px;
+}
+
+.imgs{
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin-left: 15px;
+}
+
+.trofeos{
+  margin-left: 10px;
+}
+
+.margin{
+  margin-left: 15px;
+  text-align: left;
 }
