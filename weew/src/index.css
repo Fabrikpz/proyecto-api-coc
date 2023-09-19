@@ -33,7 +33,11 @@ text-align: center;
 }
 
 .jugador {
-  text-align: center;
+  text-align: left;
+  background-color: aliceblue;
+  width: 230px;
+  border-radius: 10px;
+  color: black;
 }
 
 .nombre-jugador {

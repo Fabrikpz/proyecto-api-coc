@@ -35,7 +35,7 @@ function Calculadora(props) {
     <div id="rectangulo">
       <h1> Calculadora de skills </h1>
       <div className="jugador">
-        <h2>Jugador:</h2>
+        <h2 style={{marginLeft:"20px"}}>Jugador:</h2>
         <div className="nombre-jugador">
           {dataProfile.name && <p>{dataProfile.name}</p>}
         </div>
