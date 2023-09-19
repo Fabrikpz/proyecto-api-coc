@@ -35,7 +35,7 @@ text-align: center;
 .jugador {
   text-align: left;
   background-color: aliceblue;
-  width: 235px;
+  width: 250px;
   border-radius: 10px;
   color: black;
 }
@@ -98,3 +98,12 @@ text-align: center;
   1px 1px 0 black;
 }  
 
+.h1-aldea-nocturna{
+  margin-left: 3px;
+  position: relative;
+  bottom: 3px;
+  text-shadow: -1px -1px 0 black, 
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+}  
