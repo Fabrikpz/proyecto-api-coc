@@ -34,27 +34,44 @@ function Calculadora(props) {
   return (
     <div id="rectangulo">
       <h1> Calculadora de skills </h1>
-      <div className="jugador">
-        <h2 style={{marginLeft:"20px"}}>Jugador:</h2>
-        <div className="nombre-jugador">
-          {dataProfile.name && <p>{dataProfile.name}</p>}
+      <div className='container'>
+        <div className="jugador">
+          <div className='header'>
+            <h1 className='h1'>Jugador</h1>
+          </div>
+          <div className="nombre-jugador">
+            {dataProfile.name && <p>{dataProfile.name}</p>}
+          </div>
+          <div style={{ display: "flex" }}>
+            <div className="imgs">
+              <img src={xp} />
+              <img className="trofeos" src={trophie} style={{ width: "35px", height: "35px" }} />
+              {dataProfile.clan && <img className="clan" src={dataProfile.clan.badge.url} style={{ width: "55px", height: "55px" }} />}
+            </div>
+            <div className="margin">
+              <div >{dataProfile.expLevel && <p>Nivel de XP: {dataProfile.expLevel}</p>}</div>
+              <div style={{ position: "relative", top: "13px" }}>{dataProfile.trophies && <p>Trofeos: {dataProfile.trophies}</p>}</div>
+              <div style={{ position: "relative", top: "20px" }}>{dataProfile.clan && <p>Clan: {dataProfile.clan.name}</p>}</div>
+            </div>
+          </div>
         </div>
-        <div style={{display:"flex"}}>
-          <div className="imgs">
-            <img src={xp}/>
-            <img className="trofeos" src={trophie} style={{ width: "35px", height: "35px" }} />
-            {dataProfile.clan && <img className="clan" src={dataProfile.clan.badge.url} style={{ width: "55px", height: "55px" }} />}
+        <div className='jugador'>
+          <div className='header'>
+            <h1 className='h1-aldea-main'>Aldea principal</h1>
           </div>
-          <div className="margin">
-            <div >{dataProfile.expLevel && <p>Nivel de XP: {dataProfile.expLevel}</p>}</div>
-            <div style={{position:"relative",top:"13px"}}>{dataProfile.trophies && <p>Trofeos: {dataProfile.trophies}</p>}</div>
-            <div style={{position:"relative",top:"20px"}}>{dataProfile.clan && <p>Clan: {dataProfile.clan.name}</p>}</div>
-          </div>
+          {dataProfile.townHallLevel && <p>Nivel de ayuntamiento: {dataProfile.townHallLevel}</p>}
+        </div>
+        <div className='jugador'>
+          {dataProfile.townHallLevel && <p>Nivel de ayuntamiento: {dataProfile.townHallLevel}</p>}
         </div>
       </div>
-      {dataProfile.townHallLevel && <p>Nivel de ayuntamiento: {dataProfile.townHallLevel}</p>}
-      <div>
-        <h2>skill general ={Math.round(dataProfile.trophies / dataProfile.attackWins * dataProfile.townHallLevel)}</h2>
+    </div>
+  );
+}
+
+export default Calculadora;
+/* calculadora de gallo
+<h2>skill general ={Math.round(dataProfile.trophies / dataProfile.attackWins * dataProfile.townHallLevel)}</h2>
         <h3>ranking del jugador={dataProfile.seasonRankedPlayer}</h3>
       </div>
       <div>
@@ -65,9 +82,4 @@ function Calculadora(props) {
         ) : (
           <img src="gold.png" />
         )}
-      </div>
-    </div>
-  );
-}
-
-export default Calculadora;
+      </div>*/
