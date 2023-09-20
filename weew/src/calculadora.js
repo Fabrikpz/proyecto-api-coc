@@ -29,8 +29,9 @@ import al7 from "./cocimgs/aldea_nocturna/al7.png";
 import al8 from "./cocimgs/aldea_nocturna/al8.png";
 import al9 from "./cocimgs/aldea_nocturna/al9.png";
 import al10 from "./cocimgs/aldea_nocturna/al10.png";
-
-//th = ayunt. aldea normal y al = ayunt. aldea nocturna
+import highestTrophies from "./cocimgs/besttrophie.png";
+import attackBarbarian from "./cocimgs/attackbarbarian.png";
+import shield from "./cocimgs/shield.png";
 
 function Calculadora() {
   const [dataProfile, setDataProfile] = useState({});
@@ -42,10 +43,7 @@ function Calculadora() {
   };
   const alImages = {
     1: al1, 2: al2, 3: al3, 4: al4, 5: al5, 6: al6, 7: al7, 8: al8, 9: al9, 10: al10
-};
-
-
-
+  };
 
   useEffect(() => {
 
@@ -72,9 +70,10 @@ function Calculadora() {
   }, [input]);
 
   return (
-    <div id="rectangulo">
+    <div id="rectangulo2">
       <h1> Calculadora de skills </h1>
       <div className='container'>
+        
         <div className="jugador">
           <div className='header'>
             <h1 className='h1'>Jugador</h1>
@@ -102,43 +101,95 @@ function Calculadora() {
           </div>
           <div style={{ display: "flex" }}>
             <div className='imgs'>
-              {thlvl >= 1 && thlvl <= 15 && <img alt="ayuntamiento" src={thImages[thlvl]} style={{ width: "55px", height: "55px" }} />}
+              <div style={{ position: "relative", top: "-16px" }}>{thlvl >= 1 && thlvl <= 15 && <img alt="ayuntamiento" src={thImages[thlvl]} style={{ width: "55px", height: "55px" }} />}</div>
+              <div style={{ position: "relative", top: "-12px" }}>{dataProfile.trophies && <img src={highestTrophies} style={{ width: "50px", height: "50px" }} />}</div>
+              <div style={{ position: "relative", top: "-7px" }}>{dataProfile.trophies && <img src={attackBarbarian} style={{ width: "50px", height: "50px" }} />}</div>
+              <div style={{ position: "relative", top: "-2px", right:"-9px" }}>{dataProfile.trophies && <img src={shield} style={{ width: "50px", height: "50px" }} />}</div>
             </div>
             <div className='margin'>
-              {dataProfile.townHallLevel && <p>Nivel de ayunt: {dataProfile.townHallLevel}</p>}
+              <div style={{ position: "relative", top: "-12px" }}>{dataProfile.townHallLevel && <p>Nivel de ayunt: {dataProfile.townHallLevel}</p>}</div>
+              <div style={{ position: "relative", top: "6px" }}>{dataProfile.bestTrophies && <p>Record de trofeos: {dataProfile.bestTrophies}</p>}</div>
+              <div style={{ position: "relative", top: "30px" }}>{dataProfile.trophies && <p>Victorias totales: {dataProfile.achievements[12].value}</p>}</div>
             </div>
           </div>
         </div>
 
-          <div className='jugador'>
-            <div className='header'>
-              <h1 className='h1-aldea-nocturna'>Aldea nocturna</h1>
-            </div>
-            <div style={{ display: "flex" }}>
+        <div className='jugador'>
+          <div className='header'>
+            <h1 className='h1-aldea-nocturna'>Aldea nocturna</h1>
+          </div>
+          <div style={{ display: "flex" }}>
             <div className='imgs'>
-              {allvl >= 1 && allvl <= 15 && <img alt="ayuntamiento" src={alImages[allvl]} style={{ width: "55px", height: "55px" }} />}
+              <div style={{position:"relative", right:"5px"}}>{allvl >= 1 && allvl <= 15 && <img alt="ayuntamiento" src={alImages[allvl]} style={{ width: "60px", height: "60px" }} />}</div>
+              <div style={{ position: "relative", top: "2px" }}>{dataProfile.trophies && <img src={highestTrophies} style={{ width: "50px", height: "50px" }} />}</div>
             </div>
             <div>
               {dataProfile.builderHallLevel && <p>Nivel de ayunt.: {dataProfile.builderHallLevel}</p>}
+              <div style={{position:"relative", top:"25px"}}>{dataProfile.builderHallLevel && <p>Record de trofeos: {dataProfile.bestBuilderBaseTrophies}</p>}</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div>
+
+      <div className='jugador'>
+          <div className='header'>
+            <h1 className='h1-clan'>Participacion en clan</h1>
+          </div>
+          <div style={{ display: "flex" }}>
+            <div className='imgs'>
+            
+            </div>
+            <div className='margin'>
+              {dataProfile.role && <p>Rol: {dataProfile.role}</p>}
+              {dataProfile.achievements[14].value && <p>Tropas donadas: {dataProfile.achievements[14].value}</p>}
             </div>
           </div>
         </div>
+        <h1>skill de temporada ={Math.round((6000/dataProfile.trophies) / dataProfile.attackWins * dataProfile.townHallLevel)}</h1>
+        <h2>skill general ={Math.round(dataProfile.trophies / dataProfile.achievements[12].value * dataProfile.townHallLevel)/0.75}</h2>
+       <h3> skill de choro = </h3>
+        
       </div>
     </div>
   );
 }
 
 export default Calculadora;
+//QJL8G2PRL 
+//dataProfile.achievements[14].value tropas donadas
+//dataProfiel.achievements[13].value unbrekeable
 /* calculadora de gallo
-<h2>skill general ={Math.round(dataProfile.trophies / dataProfile.attackWins * dataProfile.townHallLevel)}</h2>
+ <p>compañerismo mensual={dataProfile.clan.donations / dataProfile.clan.donationsReceived}</p>
+
+ <h1>skill de temporada ={Math.round((6000/dataProfile.trophies) / dataProfile.attackWins * dataProfile.townHallLevel)}</h1>
+  <h2>ranking del jugador={dataProfile.seasonRankedPlayer}</h2>
+
+
         <h3>ranking del jugador={dataProfile.seasonRankedPlayer}</h3>
       </div>
       <div>
-        {dataProfile.trophies <= 799 ? ( //muestra las ligas
+        {dataProfile.trophies >= 799 ? ( //muestra las ligas
           <img src="bronze.png" />
-        ) : dataProfile.trophies <= 1399 ? (
+        ) : dataProfile.trophies >= 1399 ? (
           <img src="silver.png" />
-        ) : (
+        )
+         : dataProfile.trophies >= 1999 ?
+        (
           <img src="gold.png" />
-        )}
+        )
+       : dataProfile.trophies >= 2599 ? (
+          <img src="cristal.png" />
+        )
+       : dataProfile.trophies >= 3199 ? (
+          <img src="master.png" />
+        ) : dataProfile.trophies >= 4099 ? (
+          <img src="champs.png" />
+        ) : dataProfile.trophies >= 4999 ? (
+          <img src="titan.png" />
+        ) : dataProfile.trophies >= 5000 ? (
+          <img src="legend.png" />
+        )
+      }
       </div>*/
