@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import trophie from './cocimgs/trophie.png';
 //aldea
 import xp from "./cocimgs/xp.png";
@@ -33,11 +33,16 @@ import highestTrophies from "./cocimgs/besttrophie.png";
 import attackBarbarian from "./cocimgs/attackbarbarian.png";
 import shield from "./cocimgs/shield.png";
 
-function Calculadora() {
+function Calculadora(props) {
   const [dataProfile, setDataProfile] = useState({});
   let { input } = useParams();
+
   let thlvl = dataProfile.townHallLevel;
   let allvl = dataProfile.builderHallLevel;
+  let victoriasAtaqueTotales = dataProfile.achievements && dataProfile.achievements[12] ? dataProfile.achievements[12].value : 0;
+  let defensasTotales = dataProfile.achievements && dataProfile.achievements[13] ? dataProfile.achievements[13].value : 0;
+  let tropasDonadasTotal = dataProfile.achievements && dataProfile.achievements[14] ? dataProfile.achievements[14].value : 0;
+
   const thImages = {
     1: th1, 2: th2, 3: th3, 4: th4, 5: th5, 6: th6, 7: th7, 8: th8, 9: th9, 10: th10, 11: th11, 12: th12, 13: th13, 14: th14, 15: th15
   };
@@ -46,7 +51,6 @@ function Calculadora() {
   };
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const response = await fetch(`http://localhost:3500/getClashOfClansData/%23${input}`, {
@@ -73,7 +77,7 @@ function Calculadora() {
     <div id="rectangulo2">
       <h1> Calculadora de skills </h1>
       <div className='container'>
-        
+
         <div className="jugador">
           <div className='header'>
             <h1 className='h1'>Jugador</h1>
@@ -89,9 +93,15 @@ function Calculadora() {
             </div>
             <div className="margin">
               <div >{dataProfile.expLevel && <p>Nivel de XP: {dataProfile.expLevel}</p>}</div>
-              <div style={{ position: "relative", top: "13px" }}>{dataProfile.trophies && <p>Trofeos: {dataProfile.trophies}</p>}</div>
-              <div style={{ position: "relative", top: "20px" }}>{dataProfile.clan && <p>Clan: {dataProfile.clan.name}</p>}</div>
+              <div style={{ position: "relative", top: "10px" }}>{dataProfile.trophies && <p>Trofeos: {dataProfile.trophies}</p>}</div>
+              <div style={{ position: "relative", top: "17px" }}>{dataProfile.clan && <p>Clan: {dataProfile.clan.name}</p>}</div>
             </div>
+          </div>
+          <div className='change-tag'>
+            <p style={{marginLeft:"10px", marginBottom:"5px"}}>Cambiar jugador:</p>
+            <Link to="/">
+              <button style={{marginLeft:"10px"}}>Volver</button>
+            </Link>
           </div>
         </div>
 
@@ -101,15 +111,16 @@ function Calculadora() {
           </div>
           <div style={{ display: "flex" }}>
             <div className='imgs'>
-              <div style={{ position: "relative", top: "-16px" }}>{thlvl >= 1 && thlvl <= 15 && <img alt="ayuntamiento" src={thImages[thlvl]} style={{ width: "55px", height: "55px" }} />}</div>
-              <div style={{ position: "relative", top: "-12px" }}>{dataProfile.trophies && <img src={highestTrophies} style={{ width: "50px", height: "50px" }} />}</div>
-              <div style={{ position: "relative", top: "-7px" }}>{dataProfile.trophies && <img src={attackBarbarian} style={{ width: "50px", height: "50px" }} />}</div>
-              <div style={{ position: "relative", top: "-2px", right:"-9px" }}>{dataProfile.trophies && <img src={shield} style={{ width: "50px", height: "50px" }} />}</div>
+              {thlvl >= 1 && thlvl <= 15 && <img alt="ayuntamiento" src={thImages[thlvl]} className="imgs-aldeas" style={{ width: "55px", height: "55px" }} />}
+              {dataProfile.trophies && <img src={highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
+              {dataProfile.trophies && <img src={attackBarbarian} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
+              {dataProfile.trophies && <img src={shield} className="imgs-aldeas" style={{ width: "50px", height: "50px", position:"relative", right:"-7px" }} />}
             </div>
             <div className='margin'>
-              <div style={{ position: "relative", top: "-12px" }}>{dataProfile.townHallLevel && <p>Nivel de ayunt: {dataProfile.townHallLevel}</p>}</div>
-              <div style={{ position: "relative", top: "6px" }}>{dataProfile.bestTrophies && <p>Record de trofeos: {dataProfile.bestTrophies}</p>}</div>
-              <div style={{ position: "relative", top: "30px" }}>{dataProfile.trophies && <p>Victorias totales: {dataProfile.achievements[12].value}</p>}</div>
+              {dataProfile.townHallLevel && <p className='txts-aldeas'>Nivel de ayunt: {dataProfile.townHallLevel}</p>}
+              {dataProfile.bestTrophies && <p className='txts-aldeas'>Record de trofeos: {dataProfile.bestTrophies}</p>}
+              {dataProfile.trophies && <p className='txts-aldeas'>Victorias totales: {victoriasAtaqueTotales}</p>}
+              {dataProfile.trophies && <p className='txts-aldeas'>Defensas totales: {defensasTotales}</p>}
             </div>
           </div>
         </div>
@@ -120,12 +131,12 @@ function Calculadora() {
           </div>
           <div style={{ display: "flex" }}>
             <div className='imgs'>
-              <div style={{position:"relative", right:"5px"}}>{allvl >= 1 && allvl <= 15 && <img alt="ayuntamiento" src={alImages[allvl]} style={{ width: "60px", height: "60px" }} />}</div>
-              <div style={{ position: "relative", top: "2px" }}>{dataProfile.trophies && <img src={highestTrophies} style={{ width: "50px", height: "50px" }} />}</div>
+              {allvl >= 1 && allvl <= 15 && <img src={alImages[allvl]} className="imgs-aldeas" style={{ width: "55px", height: "55px" }} />}
+              {dataProfile.trophies && <img src={highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
             </div>
-            <div>
-              {dataProfile.builderHallLevel && <p>Nivel de ayunt.: {dataProfile.builderHallLevel}</p>}
-              <div style={{position:"relative", top:"25px"}}>{dataProfile.builderHallLevel && <p>Record de trofeos: {dataProfile.bestBuilderBaseTrophies}</p>}</div>
+            <div className='margin'>
+              {dataProfile.builderHallLevel && <p className='txts-aldeas'>Nivel de ayunt.: {dataProfile.builderHallLevel}</p>}
+              {dataProfile.builderHallLevel && <p className='txts-aldeas'>Record de trofeos: {dataProfile.bestBuilderBaseTrophies}</p>}
             </div>
 
           </div>
@@ -133,31 +144,32 @@ function Calculadora() {
       </div>
       <div>
 
-      <div className='jugador'>
-          <div className='header'>
-            <h1 className='h1-clan'>Participacion en clan</h1>
-          </div>
-          <div style={{ display: "flex" }}>
-            <div className='imgs'>
-            
+        <div className='container2'>
+          <div className='jugador'>
+            <div className='header'>
+              <h1 className='h1-clan'>Participacion en clan</h1>
             </div>
-            <div className='margin'>
-              {dataProfile.role && <p>Rol: {dataProfile.role}</p>}
-              {dataProfile.achievements[14].value && <p>Tropas donadas: {dataProfile.achievements[14].value}</p>}
+            <div style={{ display: "flex" }}>
+              <div className='imgs'>
+
+              </div>
+              <div className='margin'>
+                {dataProfile.role && <p>Rol: {dataProfile.role}</p>}
+                {dataProfile.role && <p>Total de tropas donadas: {tropasDonadasTotal}</p>}
+              </div>
             </div>
           </div>
         </div>
-        <h1>skill de temporada ={Math.round((6000/dataProfile.trophies) / dataProfile.attackWins * dataProfile.townHallLevel)}</h1>
-        <h2>skill general ={Math.round(dataProfile.trophies / dataProfile.achievements[12].value * dataProfile.townHallLevel)/0.75}</h2>
-       <h3> skill de choro = </h3>
-        
+        <h1>skill de temporada ={Math.round((6000 / dataProfile.trophies) / dataProfile.attackWins * dataProfile.townHallLevel)}</h1>
+        <h2>skill general ={Math.round(dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) / 0.75}</h2>
+        <h3> skill de choro = </h3>
       </div>
     </div>
   );
 }
 
 export default Calculadora;
-//QJL8G2PRL 
+//QJL8G2PRL
 //dataProfile.achievements[14].value tropas donadas
 //dataProfiel.achievements[13].value unbrekeable
 /* calculadora de gallo

@@ -41,13 +41,14 @@ code {
 }
 
 .mimi{
-text-align: center;
+  text-align: center;
 }
 
 .jugador {
   text-align: left;
   background-color: aliceblue;
   width: 300px;
+  height: auto;
   border-radius: 10px;
   color: black;
 }
@@ -60,6 +61,7 @@ text-align: center;
   margin-top: -15px;
   margin-bottom: -5px;
 }
+
 
 .imgs{
   display: flex;
@@ -100,6 +102,12 @@ text-align: center;
   justify-content: space-evenly;
 }
 
+.container2{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+
 .h1-aldea-main{
   margin-left: 5px;
   position: relative;
@@ -108,7 +116,16 @@ text-align: center;
   1px -1px 0 black,
   -1px 1px 0 black,
   1px 1px 0 black;
+  margin-bottom: 2px;
 }  
+.imgs-aldeas{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.txts-aldeas{
+  margin-top: 29px;
+  margin-bottom: 46px;
+}
 
 .h1-aldea-nocturna{
   margin-left: 3px;
@@ -118,6 +135,7 @@ text-align: center;
   1px -1px 0 black,
   -1px 1px 0 black,
   1px 1px 0 black;
+  margin-bottom: 2px;
 } 
 
 .h1-clan{
@@ -128,7 +146,8 @@ text-align: center;
   1px -1px 0 black,
   -1px 1px 0 black,
   1px 1px 0 black;
-  font-size: 15px;
+  font-size: 30px;
+  margin-bottom: 0px;
 }
 
 .texto{
