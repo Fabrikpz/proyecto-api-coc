@@ -1,47 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import trophie from './cocimgs/trophie.png';
-//roles
-import miembro from "./cocimgs/rol/miembro.png";
-import veterano from "./cocimgs/rol/veterano.png";
-import colider from "./cocimgs/rol/colider.png";
-import lider from "./cocimgs/rol/lider.png";
-
-//aldea
-import xp from "./cocimgs/xp.png";
-import th1 from "./cocimgs/aldea/th1.png";
-import th2 from "./cocimgs/aldea/th2.png";
-import th3 from "./cocimgs/aldea/th3.png";
-import th4 from "./cocimgs/aldea/th4.png";
-import th5 from "./cocimgs/aldea/th5.png";
-import th6 from "./cocimgs/aldea/th6.png";
-import th7 from "./cocimgs/aldea/th7.png";
-import th8 from "./cocimgs/aldea/th8.png";
-import th9 from "./cocimgs/aldea/th9.png";
-import th10 from "./cocimgs/aldea/th10.png";
-import th11 from "./cocimgs/aldea/th11.png";
-import th12 from "./cocimgs/aldea/th12.png";
-import th13 from "./cocimgs/aldea/th13.png";
-import th14 from "./cocimgs/aldea/th14.png";
-import th15 from "./cocimgs/aldea/th15.png";
-//aldea nocturna
-import al1 from "./cocimgs/aldea_nocturna/al1.png";
-import al2 from "./cocimgs/aldea_nocturna/al2.png";
-import al3 from "./cocimgs/aldea_nocturna/al3.png";
-import al4 from "./cocimgs/aldea_nocturna/al4.png";
-import al5 from "./cocimgs/aldea_nocturna/al5.png";
-import al6 from "./cocimgs/aldea_nocturna/al6.png";
-import al7 from "./cocimgs/aldea_nocturna/al7.png";
-import al8 from "./cocimgs/aldea_nocturna/al8.png";
-import al9 from "./cocimgs/aldea_nocturna/al9.png";
-import al10 from "./cocimgs/aldea_nocturna/al10.png";
-import highestTrophies from "./cocimgs/besttrophie.png";
-import attackBarbarian from "./cocimgs/attackbarbarian.png";
-import shield from "./cocimgs/shield.png";
-import barbaro from "./cocimgs/ejercitomain/tropas/barbaro.png";
-import tropas from "./cocimgs/tropas.png"
-import hechizos from "./cocimgs/hechizos.png"
-import maquinas from "./cocimgs/maquinas.png"
+import * as images from './images.js';
 
 function Calculadora(props) {
   const [dataProfile, setDataProfile] = useState({});
@@ -56,13 +15,13 @@ function Calculadora(props) {
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
 
   const thImages = {
-    1: th1, 2: th2, 3: th3, 4: th4, 5: th5, 6: th6, 7: th7, 8: th8, 9: th9, 10: th10, 11: th11, 12: th12, 13: th13, 14: th14, 15: th15
+    1: images.th1, 2: images.th2, 3: images.th3, 4: images.th4, 5: images.th5, 6: images.th6, 7: images.th7, 8: images.th8, 9: images.th9, 10: images.th10, 11: images.th11, 12: images.th12, 13: images.th13, 14: images.th14, 15: images.th15
   };
   const alImages = {
-    1: al1, 2: al2, 3: al3, 4: al4, 5: al5, 6: al6, 7: al7, 8: al8, 9: al9, 10: al10
+    1: images.al1, 2: images.al2, 3: images.al3, 4: images.al4, 5: images.al5, 6: images.al6, 7: images.al7, 8: images.al8, 9: images.al9, 10: images.al10
   };
   const rolImages = {
-    1: miembro, 2: veterano, 3: colider, 4: lider
+    1: images.miembro, 2: images.veterano, 3: images.colider, 4: images.lider
   }
 
 
@@ -112,8 +71,8 @@ function Calculadora(props) {
           </div>
           <div style={{ display: "flex" }}>
             <div className="imgs">
-              {dataProfile.clan && <img alt="xp" src={xp} />}
-              {dataProfile.clan && <img alt="trofeos" className="trofeos" src={trophie} style={{ width: "35px", height: "35px" }} />}
+              {dataProfile.clan && <img alt="xp" src={images.xp} />}
+              {dataProfile.clan && <img alt="trofeos" className="trofeos" src={images.trophy} style={{ width: "35px", height: "35px" }} />}
               {dataProfile.clan && <img alt="clan" src={dataProfile.clan.badge.url} style={{ width: "55px", height: "55px" }} />}
             </div>
             <div className="margin">
@@ -137,9 +96,9 @@ function Calculadora(props) {
           <div style={{ display: "flex" }}>
             <div className='imgs'>
               {thlvl >= 1 && thlvl <= 15 && <img alt="ayuntamiento" src={thImages[thlvl]} className="imgs-aldeas" style={{ width: "55px", height: "55px" }} />}
-              {dataProfile.trophies && <img alt="trofeos" src={highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
-              {dataProfile.trophies && <img alt="img" src={attackBarbarian} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
-              {dataProfile.trophies && <img alt="pajanGod" src={shield} className="imgs-aldeas" style={{ width: "50px", height: "50px", position: "relative", right: "-7px" }} />}
+              {dataProfile.trophies && <img alt="trofeos" src={images.highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
+              {dataProfile.trophies && <img alt="img" src={images.attackBarbarian} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
+              {dataProfile.trophies && <img alt="img" src={images.shield} className="imgs-aldeas" style={{ width: "50px", height: "50px", position: "relative", right: "-7px" }} />}
             </div>
             <div className='margin'>
               {dataProfile.townHallLevel && <p className='txts-aldeas'>Nivel de ayunt: {dataProfile.townHallLevel}</p>}
@@ -157,8 +116,8 @@ function Calculadora(props) {
           <div style={{ display: "flex" }}>
             <div className='imgs'>
               {allvl >= 1 && allvl <= 15 && <img alt="img" src={alImages[allvl]} className="imgs-aldeas" style={{ width: "55px", height: "55px" }} />}
-              {dataProfile.trophies && <img alt="img" src={highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
-              {dataProfile.trophies && <img alt="img" src={trophie} className="imgs-aldeas" style={{ width: "50px", height: "45px" }} />}
+              {dataProfile.trophies && <img alt="img" src={images.highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
+              {dataProfile.trophies && <img alt="img" src={images.trophy} className="imgs-aldeas" style={{ width: "50px", height: "45px" }} />}
             </div>
             <div className='margin'>
               {dataProfile.builderHallLevel && <p className='txts-aldeas'>Nivel de ayunt.: {dataProfile.builderHallLevel}</p>}
@@ -180,9 +139,11 @@ function Calculadora(props) {
               {dataProfile.role === "veterano" && <img src={rolImages[2]} alt="Veterano" style={{ width: '35px', height: '35px' }} />}
               {dataProfile.role === "colider" && <img src={rolImages[3]} alt="Colider" style={{ width: '35px', height: '35px' }} />}
               {dataProfile.role === "lider" && <img src={rolImages[4]} alt="Lider" style={{ width: '35px', height: '35px' }} />}
-              {tropasDonadasTotal && <img src={tropas} alt="tropas donadas" style={{ width: '35px', height: '35px' }}/>}
-              {hechizosDonados && <img src={hechizos} alt="hechizos donados" style={{ width: '35px', height: '35px' }}/>}
-              {maquinasDonadas && <img src={maquinas} alt="maquinas donadas" style={{ width: '35px', height: '35px' }}/>}
+              {/* otros iconos
+              {tropasDonadasTotal && <img src={images.tropas} alt="tropas donadas" style={{ width: '35px', height: '35px' }}/>}
+              {hechizosDonados && <img src={images.hechizos} alt="hechizos donados" style={{ width: '35px', height: '35px' }}/>}
+              {maquinasDonadas && <img src={images.maquinas} alt="maquinas donadas" style={{ width: '35px', height: '35px' }}/>}
+              */}
             </div>
             <div className="margin" style={{ top: "10px"}}>
               {dataProfile.role && <p>Rol: {dataProfile.role}</p>}
