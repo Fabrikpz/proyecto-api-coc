@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import trophie from './cocimgs/trophie.png';
+//roles
+import miembro from "./cocimgs/rol/miembro.png";
+import veterano from "./cocimgs/rol/veterano.png";
+import colider from "./cocimgs/rol/colider.png";
+import lider from "./cocimgs/rol/lider.png";
+
 //aldea
 import xp from "./cocimgs/xp.png";
 import th1 from "./cocimgs/aldea/th1.png";
@@ -32,6 +38,10 @@ import al10 from "./cocimgs/aldea_nocturna/al10.png";
 import highestTrophies from "./cocimgs/besttrophie.png";
 import attackBarbarian from "./cocimgs/attackbarbarian.png";
 import shield from "./cocimgs/shield.png";
+import barbaro from "./cocimgs/ejercitomain/tropas/barbaro.png";
+import tropas from "./cocimgs/tropas.png"
+import hechizos from "./cocimgs/hechizos.png"
+import maquinas from "./cocimgs/maquinas.png"
 
 function Calculadora(props) {
   const [dataProfile, setDataProfile] = useState({});
@@ -51,6 +61,10 @@ function Calculadora(props) {
   const alImages = {
     1: al1, 2: al2, 3: al3, 4: al4, 5: al5, 6: al6, 7: al7, 8: al8, 9: al9, 10: al10
   };
+  const rolImages = {
+    1: miembro, 2: veterano, 3: colider, 4: lider
+  }
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -123,9 +137,9 @@ function Calculadora(props) {
           <div style={{ display: "flex" }}>
             <div className='imgs'>
               {thlvl >= 1 && thlvl <= 15 && <img alt="ayuntamiento" src={thImages[thlvl]} className="imgs-aldeas" style={{ width: "55px", height: "55px" }} />}
-              {dataProfile.trophies && <img src={highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
-              {dataProfile.trophies && <img src={attackBarbarian} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
-              {dataProfile.trophies && <img src={shield} className="imgs-aldeas" style={{ width: "50px", height: "50px", position: "relative", right: "-7px" }} />}
+              {dataProfile.trophies && <img alt="trofeos" src={highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
+              {dataProfile.trophies && <img alt="img" src={attackBarbarian} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
+              {dataProfile.trophies && <img alt="pajanGod" src={shield} className="imgs-aldeas" style={{ width: "50px", height: "50px", position: "relative", right: "-7px" }} />}
             </div>
             <div className='margin'>
               {dataProfile.townHallLevel && <p className='txts-aldeas'>Nivel de ayunt: {dataProfile.townHallLevel}</p>}
@@ -142,9 +156,9 @@ function Calculadora(props) {
           </div>
           <div style={{ display: "flex" }}>
             <div className='imgs'>
-              {allvl >= 1 && allvl <= 15 && <img src={alImages[allvl]} className="imgs-aldeas" style={{ width: "55px", height: "55px" }} />}
-              {dataProfile.trophies && <img src={highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
-              {dataProfile.trophies && <img src={trophie} className="imgs-aldeas" style={{ width: "50px", height: "45px" }} />}
+              {allvl >= 1 && allvl <= 15 && <img alt="img" src={alImages[allvl]} className="imgs-aldeas" style={{ width: "55px", height: "55px" }} />}
+              {dataProfile.trophies && <img alt="img" src={highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
+              {dataProfile.trophies && <img alt="img" src={trophie} className="imgs-aldeas" style={{ width: "50px", height: "45px" }} />}
             </div>
             <div className='margin'>
               {dataProfile.builderHallLevel && <p className='txts-aldeas'>Nivel de ayunt.: {dataProfile.builderHallLevel}</p>}
@@ -161,14 +175,20 @@ function Calculadora(props) {
             <h1 className='h1-clan'>Participacion en clan</h1>
           </div>
           <div style={{ display: "flex" }}>
-            <div className='imgs'>
-
+            <div className='imgs'  style={{ marginTop: '10px' }}>
+              {dataProfile.role === "member" && <img src={rolImages[1]} alt="Member" style={{ width: '35px', height: '35px' }} />}
+              {dataProfile.role === "veterano" && <img src={rolImages[2]} alt="Veterano" style={{ width: '35px', height: '35px' }} />}
+              {dataProfile.role === "colider" && <img src={rolImages[3]} alt="Colider" style={{ width: '35px', height: '35px' }} />}
+              {dataProfile.role === "lider" && <img src={rolImages[4]} alt="Lider" style={{ width: '35px', height: '35px' }} />}
+              {tropasDonadasTotal && <img src={tropas} alt="tropas donadas" style={{ width: '35px', height: '35px' }}/>}
+              {hechizosDonados && <img src={hechizos} alt="hechizos donados" style={{ width: '35px', height: '35px' }}/>}
+              {maquinasDonadas && <img src={maquinas} alt="maquinas donadas" style={{ width: '35px', height: '35px' }}/>}
             </div>
-            <div className='margin'>
+            <div className="margin" style={{ top: "10px"}}>
               {dataProfile.role && <p>Rol: {dataProfile.role}</p>}
-              {dataProfile.role && <p>Total de tropas donadas: {tropasDonadasTotal}</p>}
-              {dataProfile.role && <p>Total de hechizos donados: {hechizosDonados}</p>}
-              {dataProfile.role && <p>Total de máquinas donadas: {maquinasDonadas}</p>}
+              {{tropasDonadasTotal} && <p style={{ marginTop: '30px' }}>Total de tropas donadas: {tropasDonadasTotal}</p>}
+              {{hechizosDonados} && <p style={{ marginTop: '30px' }}>Total de hechizos donados: {hechizosDonados}</p>}
+              {{maquinasDonadas} && <p style={{ marginTop: '30px' }}>Total de máquinas donadas: {maquinasDonadas}</p>}
             </div>
           </div>
         </div>
@@ -193,10 +213,10 @@ function Calculadora(props) {
           </div>
           <div style={{ display: "flex" }}>
             <div className='imgs'>
-
+              
             </div>
             <div className='margin'>
-              <p>oro de capital, war stars, clan war league stars, puntos juegos del clan, tesoreria, gemas x quitar obstaculos</p>
+              <p>Oro de Capital, War Stars, Clan War League Stars, Puntos juegos del clan, tesoreria, gemas x quitar obstaculos</p>
             </div>
           </div>
         </div>
@@ -261,8 +281,6 @@ function Calculadora(props) {
 
 export default Calculadora;
 //QJL8G2PRL
-//dataProfile.achievements[14].value tropas donadas
-//dataProfiel.achievements[13].value unbrekeable
 /* calculadora de gallo
  <p>compañerismo mensual={dataProfile.clan.donations / dataProfile.clan.donationsReceived}</p>
 
@@ -296,3 +314,15 @@ export default Calculadora;
         )
       }
       </div>*/
+
+      /*
+        if(dataProfile.role = "member"){
+          <img src="rolImages[1]/>
+        } else if(dataProfile.role = "veterano"){
+          <img src="rolImages[2]/>
+         } else if(dataProfile.role = "colider"){
+          <img src="rolImages[3]/>
+         } else if(dataProfile.role = "lider"){
+          <img src="rolImages[3]/>
+        
+      */

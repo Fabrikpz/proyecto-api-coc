@@ -252,3 +252,10 @@ code {
   justify-content: center;
   padding: 10px;
 }
+
+.txt-clan{
+  margin-top: 30px;
+  margin-left: 15px;
+  text-align: left;
+  
+}
