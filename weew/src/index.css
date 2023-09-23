@@ -22,7 +22,7 @@ body {
 }
 #rectangulo2 {
   width: auto;
-  height: 600px;
+  height: auto;
   background-color: rgb(0, 0, 0);
   margin: 5%;
   border-radius: 50px;
@@ -84,7 +84,7 @@ code {
   color: aliceblue;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  margin-top: -21px;
+  margin-top: -22px;
 }
 
 .h1{
@@ -103,6 +103,18 @@ code {
 }
 
 .container2{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+
+.container3{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.container4{
   display: flex;
   justify-content: space-evenly;
   margin-top: 15px;
@@ -150,6 +162,18 @@ code {
   margin-bottom: 0px;
 }
 
+.h1-recursos{
+  margin-left: 5px;
+  position: relative;
+  bottom: 3px;
+  text-shadow: -1px -1px 0 black, 
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+  margin-bottom: 2px;
+  font-size: 30px;
+}  
+
 .texto{
   text-align: center;
   text-size-adjust: 50px;
@@ -159,4 +183,72 @@ code {
   font-size: 130%;
   margin-left: 100px;
   margin-right: 100px;
+}
+
+.cosas-destruidas{
+  text-align: left;
+  background-color: aliceblue;
+  width: 1000px;
+  height: auto;
+  border-radius: 10px;
+  color: black;
+}
+.h1-destruidas{
+  text-align: center;
+  text-shadow: -1px -1px 0 black, 
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+  margin-bottom: 2px;
+  font-size: 30px;
+}
+
+.grilla-destruidas {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 0 auto; /*centra*/
+  margin-top: 6px;
+}
+.fila {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.item {
+  width: calc(25% - 10px); /* Establece el ancho de cada elemento (25% - márgenes) */
+  text-align: center;
+  border: 1px solid #ccc; /* Borde para visualizar mejor los elementos */
+  padding: 10px; /* Espaciado interno para mejor apariencia */
+  box-sizing: border-box; /* Incluye el borde en el cálculo del tamaño */
+  margin: 0 5px; /* Espacio horizontal entre los elementos */
+}
+
+/*ajustes para ultima fila */
+.fila:last-child {
+  justify-content: center;
+}
+
+.ejercito{
+  text-align: left;
+  background-color: aliceblue;
+  width: 1000px;
+  height: auto;
+  border-radius: 10px;
+  color: black;
+}
+.h1-tropas{
+  text-align: center;
+  text-shadow: -1px -1px 0 black, 
+  1px -1px 0 black,
+  -1px 1px 0 black,
+  1px 1px 0 black;
+  margin-bottom: 2px;
+  font-size: 30px;
+}
+
+.btns{
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
