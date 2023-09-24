@@ -2,17 +2,40 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import * as images from './images.js';
 
+
+
+
 function Calculadora(props) {
   const [dataProfile, setDataProfile] = useState({});
   let { input } = useParams();
 
+
+
   let thlvl = dataProfile.townHallLevel;
   let allvl = dataProfile.builderHallLevel;
+  let goldstolen=dataProfile.achievements && dataProfile.achievements[6] ? dataProfile.achievements[6].value : 0;
   let victoriasAtaqueTotales = dataProfile.achievements && dataProfile.achievements[12] ? dataProfile.achievements[12].value : 0;
   let defensasTotales = dataProfile.achievements && dataProfile.achievements[13] ? dataProfile.achievements[13].value : 0;
   let tropasDonadasTotal = dataProfile.achievements && dataProfile.achievements[14] ? dataProfile.achievements[14].value : 0;
   let hechizosDonados = dataProfile.achievements && dataProfile.achievements[23] ? dataProfile.achievements[23].value : 0;
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
+
+
+//skills
+const skillgeneral=  dataProfile.achievements && (dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) / 0.75;
+const skilltemporada =dataProfile.achievements && Math.round((6000 / dataProfile.trophies) / dataProfile.attackWins * dataProfile.townHallLevel)
+const skilldechoro = goldstolen/victoriasAtaqueTotales
+const compañerismomensual= dataProfile.clan.donations / dataProfile.clan.donationsReceived
+//skills
+
+
+//calificadorde skills
+const buenaskillg = skillGeneral <= 50;
+const buenaskillt=skilltemporada >=10
+const buenaskillc=skilldechoro <=5 //no se cuanto seria el numero aca aca
+const buenaskillco=compañerismomensual  <=5//tampoco se que poner aca
+//calificadorde skills
+
 
   const thImages = {
     1: images.th1, 2: images.th2, 3: images.th3, 4: images.th4, 5: images.th5, 6: images.th6, 7: images.th7, 8: images.th8, 9: images.th9, 10: images.th10, 11: images.th11, 12: images.th12, 13: images.th13, 14: images.th14, 15: images.th15
@@ -56,7 +79,7 @@ function Calculadora(props) {
     setMostrarContenido2(contenido === 2);
   };
 
-
+  
   return (
     <div id="rectangulo2">
       <h1> Calculadora de skills </h1>
@@ -233,9 +256,35 @@ function Calculadora(props) {
         </div>
       </div>
 
-      <h1>skill de temporada ={Math.round((6000 / dataProfile.trophies) / dataProfile.attackWins * dataProfile.townHallLevel)}</h1>
-      <h2>skill general ={Math.round(dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) / 0.75}</h2>
-      <h3> skill de choro = </h3>
+
+
+      <h2>skill general = {Math.round(skillGeneral)}</h2>
+      {buenaskillg ? (
+        <p>mejor que la mayoria</p>
+      ) : (
+        <p>estas mas o menos</p>
+      )}
+<h3>skill temporal = {Math.round(skilltemporada)}</h3>
+      {buenaskillt ? (
+        <p>sali afuera por favor</p>
+      ) : (
+        <p>mantenete al dia</p>
+      )}
+<h4> skill choreal = {Math.round(skilldechoro)}</h4>
+      {buenaskillc ? (
+        <p>estas como para ser politico</p>
+      ) : (
+        <p>buen ciudadano!</p>
+      )}
+<h4> compañerismo = {Math.round(compañerismomensual)}</h4>
+      {buenaskillco ? (
+        <p>buen compañero de clan</p>
+      ) : (
+        <p>mala persona</p>
+      )}
+
+      
+     
     </div>
   );
 }
