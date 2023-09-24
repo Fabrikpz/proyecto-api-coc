@@ -44,6 +44,13 @@ code {
   text-align: center;
 }
 
+.butons{
+  background-color: #ff8e00;
+  width: 200px;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
 .jugador {
   text-align: left;
   background-color: aliceblue;

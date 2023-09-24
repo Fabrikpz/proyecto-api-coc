@@ -20,18 +20,29 @@ function Calculadora(props) {
   let warLeagueStars = dataProfile.achievements && dataProfile.achievements[33] ? dataProfile.achievements[33].value : 0;
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
   let oroCapital = dataProfile.achievements && dataProfile.achievements[41] ? dataProfile.achievements[41].value : 0;
-
   //skills
   const skillGeneral = dataProfile.achievements && (dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) / 0.75;
   const skilltemporada = dataProfile.achievements && Math.round((6000 / dataProfile.trophies) * dataProfile.attackWins);
   const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
   const compañerismomensual = dataProfile.donations / dataProfile.received;
-
   //calificadorde skills
   const buenaskillg = skillGeneral <= 50;
   const buenaskillt = skilltemporada >= 10
   const buenaskillc = skilldechoro <= 5 //no se cuanto seria el numero aca aca
   const buenaskillco = compañerismomensual <= 5//tampoco se que poner aca
+  //objets destroyed 
+  let wlaasdestroyed = dataProfile.achievements && dataProfile.achievements[9] ? dataProfile.achievements[9].value : 0;
+  let thdestroyed =dataProfile.achievements && dataProfile.achievements[10] ? dataProfile.achievements[10].value : 0;
+  let builderhutsdestroyer = dataProfile.achievements && dataProfile.achievements[11] ? dataProfile.achievements[11].value : 0;
+  let mortarsdestroyer = dataProfile.achievements && dataProfile.achievements[15] ? dataProfile.achievements[15].value : 0;
+  let XBowsdestroyed = dataProfile.achievements && dataProfile.achievements[18] ? dataProfile.achievements[18].value : 0;
+  let InfernoTowersdestroyed = dataProfile.achievements && dataProfile.achievements[19] ? dataProfile.achievements[19].value : 0;
+  let EagleArtilleriesdestroyed = dataProfile.achievements && dataProfile.achievements[22] ? dataProfile.achievements[22].value : 0;
+  let BuilderHalls = dataProfile.achievements && dataProfile.achievements[27] ? dataProfile.achievements[27].value : 0;
+  let Scattershotsdestroyed = dataProfile.achievements && dataProfile.achievements[36] ? dataProfile.achievements[36].value : 0;
+  let SpellTowersDestroyed= dataProfile.achievements && dataProfile.achievements[43] ? dataProfile.achievements[43].value : 0;
+  let TotalMonolithsDestroyed= dataProfile.achievements && dataProfile.achievements[44] ? dataProfile.achievements[44].value : 0;
+
 
   const thImages = {
     1: images.th1, 2: images.th2, 3: images.th3, 4: images.th4, 5: images.th5, 6: images.th6, 7: images.th7, 8: images.th8, 9: images.th9, 10: images.th10, 11: images.th11, 12: images.th12, 13: images.th13, 14: images.th14, 15: images.th15
@@ -244,8 +255,8 @@ function Calculadora(props) {
             <h1 className='h1-tropas'>Ejército</h1>
           </div>
           <div className='btns'>
-            <button onClick={() => mostrarContenido(1)}>Ejército aldea principal</button>
-            <button onClick={() => mostrarContenido(2)}>Ejército aldea nocturna</button>
+            <button class="butons" onClick={() => mostrarContenido(1)}>Ejército aldea principal</button>
+            <button class="butons" onClick={() => mostrarContenido(2)}>Ejército aldea nocturna</button>
           </div>
           {mostrarContenido1 && (
             <div className='ejercito-principal'>

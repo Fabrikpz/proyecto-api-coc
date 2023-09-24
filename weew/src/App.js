@@ -23,7 +23,7 @@ function App() {
       <p>INGRESE SU ID:</p>
       <input class="mimi" onChange={handleInput} value={input} placeholder="Ingrese su ID"></input><p></p>
       <Link  to={`/calculadora/${input}`}>
-        <button>Obtener Datos</button>
+        <button class="butons">Obtener Datos</button>
       </Link>
       </div>
     </div>
