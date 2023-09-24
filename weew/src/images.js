@@ -78,15 +78,70 @@ import icegolem from "./cocimgs/ejercitomain/tropas/icegolem.png";
 import aprendiz from "./cocimgs/ejercitomain/tropas/aprendizcentinela.png";
 
 import lanzarocasMaq from "./cocimgs/ejercitomain/maquinas/lanzarocas.png";
+import rompemurosmaq from "./cocimgs/ejercitomain/maquinas/rompemuros.png";
+import lanzatroncos from "./cocimgs/ejercitomain/maquinas/lanzatroncos.png";
+import dirigible from "./cocimgs/ejercitomain/maquinas/dirigiblebelico.png";
+import catapulta from "./cocimgs/ejercitomain/maquinas/lanzallamas.png";
+import excavadora from "./cocimgs/ejercitomain/maquinas/excavadora.png";
+import asedio from "./cocimgs/ejercitomain/maquinas/cuarteldeasedio.png";
 
 import rayo from "./cocimgs/ejercitomain/hechizos/rayo.png";
+import curacion from "./cocimgs/ejercitomain/hechizos/curacion.png";
+import aceleracion from "./cocimgs/ejercitomain/hechizos/aceleracion.png";
+import esqueleto from "./cocimgs/ejercitomain/hechizos/esqueletos.png";
+import furia from "./cocimgs/ejercitomain/hechizos/furia.png";
+import hielo from "./cocimgs/ejercitomain/hechizos/hielo.png";
+import invisibilidad from "./cocimgs/ejercitomain/hechizos/invisibilidad.png";
+import bats from "./cocimgs/ejercitomain/hechizos/murcielagos.png";
+import salto from "./cocimgs/ejercitomain/hechizos/salto.png";
+import clon from "./cocimgs/ejercitomain/hechizos/clonacion.png";
+import teletransportacion from "./cocimgs/ejercitomain/hechizos/teletransportacion.png";
+import terremoto from "./cocimgs/ejercitomain/hechizos/terremoto.png";
+import veneno from "./cocimgs/ejercitomain/hechizos/veneno.png";
 
 import reyBarbaro from "./cocimgs/ejercitomain/heroes/reybarbaro.png";
 import reinaArquera from "./cocimgs/ejercitomain/heroes/reinaarquera.png";
 import centinela from "./cocimgs/ejercitomain/heroes/centinela.png";
 import campeona from "./cocimgs/ejercitomain/heroes/campeona.png";
 
+import diggy from "./cocimgs/ejercitomain/mascotas/diggy.png";
+import electroowl from "./cocimgs/ejercitomain/mascotas/electroowl.png";
+import frosty from "./cocimgs/ejercitomain/mascotas/frosty.png";
+import mightyyak from "./cocimgs/ejercitomain/mascotas/mightyyak.png";
+import phoenix from "./cocimgs/ejercitomain/mascotas/phoenix.png";
+import poisonlizard from "./cocimgs/ejercitomain/mascotas/posionlizard.png";
+import unicorn from "./cocimgs/ejercitomain/mascotas/unicorn.png";
+import lassi from "./cocimgs/ejercitomain/mascotas/lassi.png";
+
+import ragedbarbarian from "./cocimgs/ejercitonocturna/barbaro.png";
+import sneakyarcher from "./cocimgs/ejercitonocturna/arquera.png";
+import babydragon2 from "./cocimgs/ejercitonocturna/bebedragon.png";
+import bomber from "./cocimgs/ejercitonocturna/bombardero.png";
+import nightwitch from "./cocimgs/ejercitonocturna/brujanocturna.png";
+import cannoncart from "./cocimgs/ejercitonocturna/cañonconruedas.png";
+import betaminion from "./cocimgs/ejercitonocturna/esbirro.png";
+import boxergiant from "./cocimgs/ejercitonocturna/gigante.png";
+import dropship from "./cocimgs/ejercitonocturna/globo.png";
+import battlecopter from "./cocimgs/ejercitonocturna/helicopterobatalla.png";
+import battlemachine from "./cocimgs/ejercitonocturna/maquinabatalla.png";
+import hogglider from "./cocimgs/ejercitonocturna/montapuercos.png";
+import powerpekka from "./cocimgs/ejercitonocturna/pekka.png";
+import electrofirewizard from "./cocimgs/ejercitonocturna/Electrofire_Wizard.png";
 export {
+  ragedbarbarian,
+  electrofirewizard,
+  sneakyarcher,
+  babydragon2,
+  bomber,
+  nightwitch,
+  cannoncart,
+  betaminion,
+  boxergiant,
+  dropship,
+  battlecopter,
+  battlemachine,
+  hogglider,
+  powerpekka,
   miembro,
   veterano,
   colider,
@@ -162,8 +217,34 @@ export {
   montadragon,
   lanzarocasMaq,
   rayo,
+  aceleracion,
+  clon,
+  curacion,
+  esqueleto,
+  furia,
+  hielo,
+  invisibilidad,
+  bats,
+  salto,
+  teletransportacion,
+  terremoto,
+  veneno,
   reyBarbaro,
   reinaArquera,
   centinela,
   campeona,
+  diggy,
+  electroowl,
+  frosty,
+  lassi,
+  mightyyak,
+  phoenix,
+  poisonlizard,
+  unicorn,
+  rompemurosmaq,
+  lanzatroncos,
+  catapulta,
+  asedio,
+  excavadora,
+  dirigible
 };

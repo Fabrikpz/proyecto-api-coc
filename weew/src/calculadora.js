@@ -266,9 +266,20 @@ function Calculadora(props) {
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Headhunter")]?.name === "Headhunter" ? <img alt="troop" src={images.headhunter} style={{ width: "60px", height: "60px" }} /> : null}
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Apprentice Warden")]?.name === "Apprentice Warden" ? <img alt="troop" src={images.aprendiz} style={{ width: "60px", height: "60px" }} /> : null}
               </div>
-              <div className='supertropas'>
-              </div>
               <div className='hechizos'>
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Lightning Spell")]?.name === "Lightning Spell" ? <img alt="troop" src={images.rayo} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Healing Spell")]?.name === "Healing Spell" ? <img alt="troop" src={images.curacion} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Rage Spell")]?.name === "Rage Spell" ? <img alt="troop" src={images.furia} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Jump Spell")]?.name === "Jump Spell" ? <img alt="troop" src={images.salto} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Freeze Spell")]?.name === "Freeze Spell" ? <img alt="troop" src={images.hielo} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Poison Spell")]?.name === "Poison Spell" ? <img alt="troop" src={images.veneno} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Earthquake Spell")]?.name === "Earthquake Spell" ? <img alt="troop" src={images.terremoto} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Haste Spell")]?.name === "Haste Spell" ? <img alt="troop" src={images.aceleracion} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Clone Spell")]?.name === "Clone Spell" ? <img alt="troop" src={images.clon} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Skeleton Spell")]?.name === "Skeleton Spell" ? <img alt="troop" src={images.esqueleto} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Bat Spell")]?.name === "Bat Spell" ? <img alt="troop" src={images.bats} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Invisibility Spell")]?.name === "Invisibility Spell" ? <img alt="troop" src={images.invisibilidad} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Recall Spell")]?.name === "Recall Spell" ? <img alt="troop" src={images.teletransportacion} style={{ width: "60px", height: "60px" }} /> : null}
               </div>
               {dataProfile.heroes &&
                 <div className='heroes'>
@@ -278,15 +289,47 @@ function Calculadora(props) {
                   {thlvl >= 13 && <img alt="champ" src={images.campeona} style={{ width: "60px", height: "60px" }} />}
                 </div>}
               <div className='mascotas'>
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "L.A.S.S.I")]?.name === "L.A.S.S.I" ? <img alt="troop" src={images.lassi} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Mighty Yak")]?.name === "Mighty Yak" ? <img alt="troop" src={images.mightyyak} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Owl")]?.name === "Electro Owl" ? <img alt="troop" src={images.electroowl} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Unicorn")]?.name === "Unicorn" ? <img alt="troop" src={images.unicorn} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Phoenix")]?.name === "Phoenix" ? <img alt="troop" src={images.phoenix} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Poison Lizard")]?.name === "Poison Lizard" ? <img alt="troop" src={images.poisonlizard} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Diggy")]?.name === "Diggy" ? <img alt="troop" src={images.diggy} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Frosty")]?.name === "Frosty" ? <img alt="troop" src={images.frosty} style={{ width: "60px", height: "60px" }} /> : null}
               </div>
               <div className='maquinas'>
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Wall Wrecker")]?.name === "Wall Wrecker" ? <img alt="troop" src={images.rompemurosmaq} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Battle Blimp")]?.name === "Battle Blimp" ? <img alt="troop" src={images.dirigible} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Stone Slammer")]?.name === "Stone Slammer" ? <img alt="troop" src={images.lanzarocasMaq} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Siege Barracks")]?.name === "Siege Barracks" ? <img alt="troop" src={images.asedio} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Log Launcher")]?.name === "Log Launcher" ? <img alt="troop" src={images.lanzatroncos} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Flame Flinger")]?.name === "Flame Flinger" ? <img alt="troop" src={images.catapulta} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Battle Drill")]?.name === "Battle Drill" ? <img alt="troop" src={images.excavadora} style={{ width: "60px", height: "60px" }} /> : null}
               </div>
             </div>
           )}
 
           {mostrarContenido2 && (
             <div id="ejercito-nocturna">
-              Contenido del botón 2
+              <div className='ejercito-principal'>
+                <div className='tropas-principal'>
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Raged Barbarian")]?.name === "Raged Barbarian" ? <img alt="troop" src={images.ragedbarbarian} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Sneaky Archer")]?.name === "Sneaky Archer" ? <img alt="troop" src={images.sneakyarcher} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Boxer Giant")]?.name === "Boxer Giant" ? <img alt="troop" src={images.boxergiant} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Bomber")]?.name === "Bomber" ? <img alt="troop" src={images.bomber} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Cannon Cart")]?.name === "Cannon Cart" ? <img alt="troop" src={images.cannoncart} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Night Witch")]?.name === "Night Witch" ? <img alt="troop" src={images.nightwitch} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Drop Ship")]?.name === "Drop Ship" ? <img alt="troop" src={images.dropship} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Power P.E.K.K.A")]?.name === "Power P.E.K.K.A" ? <img alt="troop" src={images.powerpekka} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Hog Glider")]?.name === "Hog Glider" ? <img alt="troop" src={images.hogglider} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electrofire Wizard")]?.name === "Electrofire Wizard" ? <img alt="troop" src={images.electrofirewizard} style={{ width: "60px", height: "60px" }} /> : null}
+                </div>
+                <div className='heroes'>
+                  {dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Machine")]?.name === "Battle Machine" ? <img alt="troop" src={images.battlemachine} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Copter")]?.name === "Battle Copter" ? <img alt="troop" src={images.battlecopter} style={{ width: "60px", height: "60px" }} /> : null}
+                </div>
+              </div>
             </div>
           )}
         </div>
