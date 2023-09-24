@@ -2,40 +2,32 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import * as images from './images.js';
 
-
-
-
 function Calculadora(props) {
   const [dataProfile, setDataProfile] = useState({});
   let { input } = useParams();
 
-
-
   let thlvl = dataProfile.townHallLevel;
   let allvl = dataProfile.builderHallLevel;
-  let goldstolen=dataProfile.achievements && dataProfile.achievements[6] ? dataProfile.achievements[6].value : 0;
+  let oroRobado = dataProfile.achievements && dataProfile.achievements[5] ? dataProfile.achievements[5].value : 0;
+  let elixirRobado = dataProfile.achievements && dataProfile.achievements[6] ? dataProfile.achievements[6].value : 0;
+  let elixirOscuroRobado = dataProfile.achievements && dataProfile.achievements[16] ? dataProfile.achievements[16].value : 0;
   let victoriasAtaqueTotales = dataProfile.achievements && dataProfile.achievements[12] ? dataProfile.achievements[12].value : 0;
   let defensasTotales = dataProfile.achievements && dataProfile.achievements[13] ? dataProfile.achievements[13].value : 0;
   let tropasDonadasTotal = dataProfile.achievements && dataProfile.achievements[14] ? dataProfile.achievements[14].value : 0;
   let hechizosDonados = dataProfile.achievements && dataProfile.achievements[23] ? dataProfile.achievements[23].value : 0;
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
 
+  //skills
+  const skillGeneral = dataProfile.achievements && (dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) / 0.75;
+  const skilltemporada = dataProfile.achievements && Math.round((6000 / dataProfile.trophies) * dataProfile.attackWins);
+  const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
+  const compañerismomensual = dataProfile.donations / dataProfile.received;
 
-//skills
-const skillgeneral=  dataProfile.achievements && (dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) / 0.75;
-const skilltemporada =dataProfile.achievements && Math.round((6000 / dataProfile.trophies) / dataProfile.attackWins * dataProfile.townHallLevel)
-const skilldechoro = goldstolen/victoriasAtaqueTotales
-const compañerismomensual= dataProfile.clan.donations / dataProfile.clan.donationsReceived
-//skills
-
-
-//calificadorde skills
-const buenaskillg = skillGeneral <= 50;
-const buenaskillt=skilltemporada >=10
-const buenaskillc=skilldechoro <=5 //no se cuanto seria el numero aca aca
-const buenaskillco=compañerismomensual  <=5//tampoco se que poner aca
-//calificadorde skills
-
+  //calificadorde skills
+  const buenaskillg = skillGeneral <= 50;
+  const buenaskillt = skilltemporada >= 10
+  const buenaskillc = skilldechoro <= 5 //no se cuanto seria el numero aca aca
+  const buenaskillco = compañerismomensual <= 5//tampoco se que poner aca
 
   const thImages = {
     1: images.th1, 2: images.th2, 3: images.th3, 4: images.th4, 5: images.th5, 6: images.th6, 7: images.th7, 8: images.th8, 9: images.th9, 10: images.th10, 11: images.th11, 12: images.th12, 13: images.th13, 14: images.th14, 15: images.th15
@@ -46,7 +38,6 @@ const buenaskillco=compañerismomensual  <=5//tampoco se que poner aca
   const rolImages = {
     1: images.miembro, 2: images.veterano, 3: images.colider, 4: images.lider
   }
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,7 +70,7 @@ const buenaskillco=compañerismomensual  <=5//tampoco se que poner aca
     setMostrarContenido2(contenido === 2);
   };
 
-  
+
   return (
     <div id="rectangulo2">
       <h1> Calculadora de skills </h1>
@@ -157,22 +148,20 @@ const buenaskillco=compañerismomensual  <=5//tampoco se que poner aca
             <h1 className='h1-clan'>Participacion en clan</h1>
           </div>
           <div style={{ display: "flex" }}>
-            <div className='imgs'  style={{ marginTop: '10px' }}>
-              {dataProfile.role === "member" && <img src={rolImages[1]} alt="Member" style={{ width: '35px', height: '35px' }} />}
-              {dataProfile.role === "veterano" && <img src={rolImages[2]} alt="Veterano" style={{ width: '35px', height: '35px' }} />}
-              {dataProfile.role === "colider" && <img src={rolImages[3]} alt="Colider" style={{ width: '35px', height: '35px' }} />}
-              {dataProfile.role === "lider" && <img src={rolImages[4]} alt="Lider" style={{ width: '35px', height: '35px' }} />}
-              {/* otros iconos
-              {tropasDonadasTotal && <img src={images.tropas} alt="tropas donadas" style={{ width: '35px', height: '35px' }}/>}
-              {hechizosDonados && <img src={images.hechizos} alt="hechizos donados" style={{ width: '35px', height: '35px' }}/>}
-              {maquinasDonadas && <img src={images.maquinas} alt="maquinas donadas" style={{ width: '35px', height: '35px' }}/>}
-              */}
+            <div className='imgs'>
+              {dataProfile.role === "member" && <img src={rolImages[1]} alt="Member" className="imgs-aldeas" style={{ width: '40px', height: '40px' }} />}
+              {dataProfile.role === "elder" && <img src={rolImages[2]} alt="Veterano" className="imgs-aldeas" style={{ width: '40px', height: '40px' }} />}
+              {dataProfile.role === "coLeader" && <img src={rolImages[3]} alt="Colider" className="imgs-aldeas" style={{ width: '40px', height: '40px' }} />}
+              {dataProfile.role === "leader" && <img src={rolImages[4]} alt="Lider" className="imgs-aldeas" style={{ width: '40px', height: '40px' }} />}
+              {tropasDonadasTotal && <img src={images.duende} alt="troop" className="imgs-aldeas" style={{ width: '40px', height: '40px' }} />}
+              {tropasDonadasTotal && <img src={images.rayo} alt="troop" className="imgs-aldeas" style={{ width: '40px', height: '40px' }} />}
+              {tropasDonadasTotal && <img src={images.lanzarocasMaq} alt="troop" className="imgs-aldeas" style={{ width: '45px', height: '45px' }} />}
             </div>
-            <div className="margin" style={{ top: "10px"}}>
-              {dataProfile.role && <p>Rol: {dataProfile.role}</p>}
-              {{tropasDonadasTotal} && <p style={{ marginTop: '30px' }}>Total de tropas donadas: {tropasDonadasTotal}</p>}
-              {{hechizosDonados} && <p style={{ marginTop: '30px' }}>Total de hechizos donados: {hechizosDonados}</p>}
-              {{maquinasDonadas} && <p style={{ marginTop: '30px' }}>Total de máquinas donadas: {maquinasDonadas}</p>}
+            <div className="margin">
+              {dataProfile.role && <p className='txts-participacion'>Rol: {dataProfile.role}</p>}
+              {{ tropasDonadasTotal } && <p className='txts-participacion'>Total de tropas donadas: {tropasDonadasTotal}</p>}
+              {{ hechizosDonados } && <p className='txts-participacion'>Total de hechizos donados: {hechizosDonados}</p>}
+              {{ maquinasDonadas } && <p className='txts-participacion'>Total de máquinas donadas: {maquinasDonadas}</p>}
             </div>
           </div>
         </div>
@@ -182,11 +171,15 @@ const buenaskillco=compañerismomensual  <=5//tampoco se que poner aca
             <h1 className='h1-recursos'>Recursos saqueados</h1>
           </div>
           <div style={{ display: "flex" }}>
-            <div className='imgs'>
-
+            <div className='imgs' style={{ marginTop: "10px", marginLeft: "2px" }}>
+              {oroRobado && <img alt="img" src={images.oro} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              {elixirRobado && <img alt="img" src={images.elixir} className="imgs-aldeas" style={{ width: "40px", height: "40px", position: "relative", top: "10px" }} />}
+              {elixirOscuroRobado && <img alt="img" src={images.elixirOscuro} className="imgs-aldeas" style={{ width: "40px", height: "40px", position: "relative", top: "15px" }} />}
             </div>
             <div className='margin'>
-              <p>oro, elixir, elixir oscuro</p>
+              {{ oroRobado } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Oro robado total: {oroRobado}</p>}
+              {{ elixirRobado } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Elixir robado total: {elixirRobado}</p>}
+              {{ elixirOscuroRobado } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Elixir oscuro robado total: {elixirOscuroRobado}</p>}
             </div>
           </div>
         </div>
@@ -197,7 +190,7 @@ const buenaskillco=compañerismomensual  <=5//tampoco se que poner aca
           </div>
           <div style={{ display: "flex" }}>
             <div className='imgs'>
-              
+
             </div>
             <div className='margin'>
               <p>Oro de Capital, War Stars, Clan War League Stars, Puntos juegos del clan, tesoreria, gemas x quitar obstaculos</p>
@@ -239,12 +232,55 @@ const buenaskillco=compañerismomensual  <=5//tampoco se que poner aca
             <h1 className='h1-tropas'>Ejército</h1>
           </div>
           <div className='btns'>
-          <button onClick={() => mostrarContenido(1)}>Ejército aldea principal</button>
-          <button onClick={() => mostrarContenido(2)}>Ejército aldea nocturna</button>
+            <button onClick={() => mostrarContenido(1)}>Ejército aldea principal</button>
+            <button onClick={() => mostrarContenido(2)}>Ejército aldea nocturna</button>
           </div>
           {mostrarContenido1 && (
-            <div id="ejercito-principal">
-              Contenido del botón 1
+            <div className='ejercito-principal'>
+              <div className='tropas-principal'>
+                {dataProfile.troops[0]?.name === "Barbarian" ? <img alt="troop" src={images.barbarian} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[1]?.name === "Archer" ? <img alt="troop" src={images.arquera} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[2]?.name === "Goblin" ? <img alt="troop" src={images.duende} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[3]?.name === "Giant" ? <img alt="troop" src={images.gigante} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[4]?.name === "Wall Breaker" ? <img alt="troop" src={images.rompemuros} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[5]?.name === "Balloon" ? <img alt="troop" src={images.globito} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[6]?.name === "Wizard" ? <img alt="troop" src={images.mago} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[7]?.name === "Healer" ? <img alt="troop" src={images.sanadora} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[8]?.name === "Dragon" ? <img alt="troop" src={images.dragon} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[9]?.name === "P.E.K.K.A" ? <img alt="troop" src={images.pekka} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[10]?.name === "Minion" ? <img alt="troop" src={images.esbirro} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[11]?.name === "Hog Rider" ? <img alt="troop" src={images.monta} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[12]?.name === "Valkyrie" ? <img alt="troop" src={images.valquiria} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[13]?.name === "Golem" ? <img alt="troop" src={images.golem} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[14]?.name === "Witch" ? <img alt="troop" src={images.bruja} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[15]?.name === "Lava Hound" ? <img alt="troop" src={images.sabueso} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[16]?.name === "Bowler" ? <img alt="troop" src={images.bowler} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[17]?.name === "Baby Dragon" ? <img alt="troop" src={images.bebedragon} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[18]?.name === "Miner" ? <img alt="troop" src={images.minero} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Dragon")]?.name === "Electro Dragon" ? <img alt="troop" src={images.electrodragon} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Yeti")]?.name === "Yeti" ? <img alt="troop" src={images.yeti} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Dragon Rider")]?.name === "Dragon Rider" ? <img alt="troop" src={images.montadragon} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Titan")]?.name === "Electro Titan" ? <img alt="troop" src={images.electrotitan} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Ice Golem")]?.name === "Ice Golem" ? <img alt="troop" src={images.icegolem} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Titan")]?.name === "Electro Titan" ? <img alt="troop" src={images.electrotitan} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Headhunter")]?.name === "Headhunter" ? <img alt="troop" src={images.headhunter} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Apprentice Warden")]?.name === "Apprentice Warden" ? <img alt="troop" src={images.aprendiz} style={{ width: "60px", height: "60px" }} /> : null}
+              </div>
+              <div className='supertropas'>
+              </div>
+              <div className='hechizos'>
+              </div>
+              {dataProfile.heroes &&
+                <div className='heroes'>
+                  <img alt="rey" src={images.reyBarbaro} style={{ width: "60px", height: "60px" }} />
+                  {thlvl >= 9 && <img alt="reina" src={images.reinaArquera} style={{ width: "60px", height: "60px" }} />}
+                  {thlvl >= 11 && <img alt="centi" src={images.centinela} style={{ width: "60px", height: "60px" }} />}
+                  {thlvl >= 13 && <img alt="champ" src={images.campeona} style={{ width: "60px", height: "60px" }} />}
+                </div>}
+              <div className='mascotas'>
+              </div>
+              <div className='maquinas'>
+              </div>
             </div>
           )}
 
@@ -264,27 +300,26 @@ const buenaskillco=compañerismomensual  <=5//tampoco se que poner aca
       ) : (
         <p>estas mas o menos</p>
       )}
-<h3>skill temporal = {Math.round(skilltemporada)}</h3>
+      <h3>skill temporal = {Math.round(skilltemporada)}</h3>
       {buenaskillt ? (
         <p>sali afuera por favor</p>
       ) : (
         <p>mantenete al dia</p>
       )}
-<h4> skill choreal = {Math.round(skilldechoro)}</h4>
+      <h4> skill choreal = {Math.round(skilldechoro)}</h4>
       {buenaskillc ? (
         <p>estas como para ser politico</p>
       ) : (
         <p>buen ciudadano!</p>
       )}
-<h4> compañerismo = {Math.round(compañerismomensual)}</h4>
+      <h4> compañerismo = {Math.round(compañerismomensual)}</h4>
       {buenaskillco ? (
         <p>buen compañero de clan</p>
       ) : (
         <p>mala persona</p>
       )}
 
-      
-     
+
     </div>
   );
 }
@@ -325,14 +360,14 @@ export default Calculadora;
       }
       </div>*/
 
-      /*
-        if(dataProfile.role = "member"){
-          <img src="rolImages[1]/>
-        } else if(dataProfile.role = "veterano"){
-          <img src="rolImages[2]/>
-         } else if(dataProfile.role = "colider"){
-          <img src="rolImages[3]/>
-         } else if(dataProfile.role = "lider"){
-          <img src="rolImages[3]/>
-        
-      */
+/*
+  if(dataProfile.role = "member"){
+    <img src="rolImages[1]/>
+  } else if(dataProfile.role = "veterano"){
+    <img src="rolImages[2]/>
+   } else if(dataProfile.role = "colider"){
+    <img src="rolImages[3]/>
+   } else if(dataProfile.role = "lider"){
+    <img src="rolImages[3]/>
+  
+*/

@@ -47,7 +47,7 @@ code {
 .jugador {
   text-align: left;
   background-color: aliceblue;
-  width: 300px;
+  width: 305px;
   height: auto;
   border-radius: 10px;
   color: black;
@@ -137,6 +137,15 @@ code {
 .txts-aldeas{
   margin-top: 29px;
   margin-bottom: 46px;
+}
+.txts-aldeas{
+  margin-top: 29px;
+  margin-bottom: 46px;
+}
+.txts-participacion{
+  margin-top: 23px;
+  margin-bottom: 37px;
+  margin-left: -10px;
 }
 
 .h1-aldea-nocturna{
@@ -257,5 +266,9 @@ code {
   margin-top: 30px;
   margin-left: 15px;
   text-align: left;
-  
+}
+
+#ejercito-principal{
+  margin-left: 2px;
+  margin-right: 2px;
 }
