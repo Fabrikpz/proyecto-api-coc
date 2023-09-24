@@ -1,5 +1,10 @@
 // ESTA FEO PERO ME TIRABA PONIENDOLO ADENTRO DEL OBJETO
 
+import pocho from "./cocimgs/developers/108152954.png"
+import sicc from "./cocimgs/developers/108529990.jpg"
+import pat from "./cocimgs/developers/139081055.jpg"
+import medran from "./cocimgs/developers/67169629.png"
+
 import miembro from "./cocimgs/rol/miembro.png";
 import veterano from "./cocimgs/rol/veterano.png";
 import colider from "./cocimgs/rol/colider.png";
@@ -134,7 +139,27 @@ import guerraClanesLiga from "./cocimgs/recursos/cwlstars.png";
 import puntosJuegosClan from "./cocimgs/recursos/juegosclan.png";
 import tesoreriaImg from "./cocimgs/recursos/tesoreria.png";
  
+
+import BuilderHall from "./cocimgs/structures-destroyed/Builder_Hall_6.png"
+import BuilderHut from "./cocimgs/structures-destroyed/Builders_Hut.png"
+import EagleArtillery from "./cocimgs/structures-destroyed/Eagle_Artillery_2.png"
+import InfernoTower from "./cocimgs/structures-destroyed/Inferno_Tower_2-Single.png"
+import Monolith from "./cocimgs/structures-destroyed/Monolith_2.png"
+import Mortar from "./cocimgs/structures-destroyed/Mortar_5.png"
+import Scattershot from "./cocimgs/structures-destroyed/Scattershot_2.png"
+import SpellTower from "./cocimgs/structures-destroyed/Spell_Tower_3.png"
+import TownHall from "./cocimgs/structures-destroyed/Town_Hall_8.png"
+import Wall from "./cocimgs/structures-destroyed/Wall_5.png"
+import XBow from "./cocimgs/structures-destroyed/X-Bow_2-Ground.png"
+
+
+
+
 export {
+  pocho,
+  sicc,
+  pat,
+  medran,
   ragedbarbarian,
   electrofirewizard,
   sneakyarcher,
@@ -259,4 +284,15 @@ export {
   guerraClanesLiga,
   puntosJuegosClan,
   tesoreriaImg,
+  BuilderHall,
+  BuilderHut,
+  EagleArtillery,
+  InfernoTower,
+  Monolith,
+  Mortar,
+  Scattershot,
+  SpellTower,
+  TownHall,
+  Wall,
+  XBow,
 };

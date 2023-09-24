@@ -2,6 +2,11 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Calculadora from './calculadora';
+import * as images from './images.js';
+
+const developers = {
+  1: images.pocho, 2: images.sicc, 3: images.pat, 4: images.medran
+};
 
 function App() {
   const [input, setInput] = useState('');
@@ -13,7 +18,7 @@ function App() {
 
   return (
     <div id="rectangulo">
-      <h1 class="titulo">CLASH OF CLANS STATS #QVYUVRPUP</h1>
+      <h1 class="titulo">🏹CLASH OF CLANS STATS🏹#QVYUVRPUP</h1>
       <div class="texto">
         <div class="bienvenida">
           <p>
@@ -25,6 +30,13 @@ function App() {
       <Link  to={`/calculadora/${input}`}>
         <button class="butons">Obtener Datos</button>
       </Link>
+      <p>🔥desarroladores🔥</p>
+      <div class = "desarolladores">
+      <img alt="trofeos" src={images.pocho} style={{ width: "50px", height: "50px" }}></img><p>silveyra🚗</p>
+      <img alt="Developers" src={images.sicc} style={{ width: "50px", height: "50px" }}></img><p>Masante🐱‍🐉</p>
+      <img alt="Developers" src={images.pat} className="imgs-aldeas" style={{ width: "50px", height: "50px" }}></img><p>Gallo</p>
+      <img alt="Developers" src={images.medran} className="imgs-aldeas" style={{ width: "50px", height: "50px" }}></img><p>Medrano🐧</p>
+      </div>
       </div>
     </div>
   );

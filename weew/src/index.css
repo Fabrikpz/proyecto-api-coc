@@ -295,3 +295,9 @@ code {
   margin-top: 24445px;
   margin-bottom: 25px;
 }
+
+.desarolladores{
+  display: flex;
+  justify-content:center;
+  align-items: end;
+}

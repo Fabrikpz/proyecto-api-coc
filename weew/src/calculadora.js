@@ -111,9 +111,9 @@ function Calculadora(props) {
             </div>
           </div>
           <div className='change-tag'>
-            <p style={{ marginLeft: "10px", marginBottom: "5px" }}>Cambiar jugador:</p>
             <Link to="/">
-              <button style={{ marginLeft: "10px" }}>Volver</button>
+              <p></p>
+              <button style={{ marginLeft: "10px" }}>Volver al menu</button>
             </Link>
           </div>
         </div>
