@@ -14,8 +14,12 @@ function Calculadora(props) {
   let victoriasAtaqueTotales = dataProfile.achievements && dataProfile.achievements[12] ? dataProfile.achievements[12].value : 0;
   let defensasTotales = dataProfile.achievements && dataProfile.achievements[13] ? dataProfile.achievements[13].value : 0;
   let tropasDonadasTotal = dataProfile.achievements && dataProfile.achievements[14] ? dataProfile.achievements[14].value : 0;
+  let tesoreria = dataProfile.achievements && dataProfile.achievements[21] ? dataProfile.achievements[21].value : 0;
   let hechizosDonados = dataProfile.achievements && dataProfile.achievements[23] ? dataProfile.achievements[23].value : 0;
+  let clanGamePoints = dataProfile.achievements && dataProfile.achievements[31] ? dataProfile.achievements[31].value : 0;
+  let warLeagueStars = dataProfile.achievements && dataProfile.achievements[33] ? dataProfile.achievements[33].value : 0;
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
+  let oroCapital = dataProfile.achievements && dataProfile.achievements[41] ? dataProfile.achievements[41].value : 0;
 
   //skills
   const skillGeneral = dataProfile.achievements && (dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) / 0.75;
@@ -189,11 +193,19 @@ function Calculadora(props) {
             <h1 className='h1-recursos'>Otros recursos</h1>
           </div>
           <div style={{ display: "flex" }}>
-            <div className='imgs'>
-
+            <div className='imgs' style={{ marginTop: "15px", marginLeft: "2px" }}>
+            {{ oroCapital } && <img alt="oro capital" src={images.oroCapitalImg} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+            { dataProfile.warStars && <img alt="estrellas guerra" src={images.guerraClanes} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "20px" }} />}
+            {{ warLeagueStars } && <img alt="estrellas guerra liga" src={images.guerraClanesLiga} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "20px" }} />}
+            {{ clanGamePoints } && <img alt="puntos juegos clan" src={images.puntosJuegosClan} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "15px" }} />}
+            {{ tesoreria } && <img alt="tesoreria" src={images.tesoreriaImg} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "10px" }} />}
             </div>
             <div className='margin'>
-              <p>Oro de Capital, War Stars, Clan War League Stars, Puntos juegos del clan, tesoreria, gemas x quitar obstaculos</p>
+              {{ oroCapital } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Oro de Capital: {oroCapital}</p>}
+              {dataProfile.warStars && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Estrellas de Guerra: {dataProfile.warStars}</p>}
+              {{ warLeagueStars } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Estrellas de Guerra de Liga: { warLeagueStars }</p>}
+              {{ clanGamePoints } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Puntos de juegos de Clan: { clanGamePoints }</p>}
+              {{ tesoreria } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Tesoreria: { tesoreria }</p>}
             </div>
           </div>
         </div>

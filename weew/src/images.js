@@ -127,6 +127,13 @@ import battlemachine from "./cocimgs/ejercitonocturna/maquinabatalla.png";
 import hogglider from "./cocimgs/ejercitonocturna/montapuercos.png";
 import powerpekka from "./cocimgs/ejercitonocturna/pekka.png";
 import electrofirewizard from "./cocimgs/ejercitonocturna/Electrofire_Wizard.png";
+
+import oroCapitalImg from "./cocimgs/recursos/orocapital.png";
+import guerraClanes from "./cocimgs/recursos/warstars.png";
+import guerraClanesLiga from "./cocimgs/recursos/cwlstars.png";
+import puntosJuegosClan from "./cocimgs/recursos/juegosclan.png";
+import tesoreriaImg from "./cocimgs/recursos/tesoreria.png";
+ 
 export {
   ragedbarbarian,
   electrofirewizard,
@@ -246,5 +253,10 @@ export {
   catapulta,
   asedio,
   excavadora,
-  dirigible
+  dirigible,
+  oroCapitalImg,
+  guerraClanes,
+  guerraClanesLiga,
+  puntosJuegosClan,
+  tesoreriaImg,
 };
