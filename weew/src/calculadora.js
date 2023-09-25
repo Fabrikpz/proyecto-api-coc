@@ -20,17 +20,17 @@ function Calculadora(props) {
   let warLeagueStars = dataProfile.achievements && dataProfile.achievements[33] ? dataProfile.achievements[33].value : 0;
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
   let oroCapital = dataProfile.achievements && dataProfile.achievements[41] ? dataProfile.achievements[41].value : 0;
-  let donacionesrecividas=data.Profile.donationsReceived;
-  //skills
-  const skillGeneral = dataProfile.achievements && (dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) ;
+  
+  const skillGeneral = dataProfile.achievements && (dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) / 0.75;
   const skilltemporada = dataProfile.achievements && Math.round((6000 / dataProfile.trophies) * dataProfile.attackWins);
-  const skilldechoro = (((oroRobado + elixirRobado + (elixirOscuroRobado)*10)/3) / victoriasAtaqueTotales*100) / 2;
-  const compañerismomensual = ((maquinasDonadas + hechizosDonados + tropasDonadasTotal)/donacionesrecividas)
+  const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
+  const compañerismomensual = dataProfile.donations / dataProfile.received;
   //calificadorde skills
-  const buenaskillg = skillGeneral <= 45;
+  const buenaskillg = skillGeneral <= 50;
   const buenaskillt = skilltemporada >= 10
-  const buenaskillc = skilldechoro <= 1000 //no se cuanto seria el numero aca aca
-  const buenaskillco = compañerismomensual <= 5//tampoco se que poner aca
+  const buenaskillc = skilldechoro <= 5 //no se cuanto seria el numero aca aca
+  const buenaskillco = compañerismomensual <= 5
+  
   //objets destroyed 
   let wallsdestroyed = dataProfile.achievements && dataProfile.achievements[9] ? dataProfile.achievements[9].value : 0;
   let thdestroyed = dataProfile.achievements && dataProfile.achievements[10] ? dataProfile.achievements[10].value : 0;
@@ -43,7 +43,6 @@ function Calculadora(props) {
   let Scattershotsdestroyed = dataProfile.achievements && dataProfile.achievements[36] ? dataProfile.achievements[36].value : 0;
   let SpellTowersDestroyed = dataProfile.achievements && dataProfile.achievements[43] ? dataProfile.achievements[43].value : 0;
   let TotalMonolithsDestroyed = dataProfile.achievements && dataProfile.achievements[44] ? dataProfile.achievements[44].value : 0;
-
 
   const thImages = {
     1: images.th1, 2: images.th2, 3: images.th3, 4: images.th4, 5: images.th5, 6: images.th6, 7: images.th7, 8: images.th8, 9: images.th9, 10: images.th10, 11: images.th11, 12: images.th12, 13: images.th13, 14: images.th14, 15: images.th15
@@ -90,7 +89,6 @@ function Calculadora(props) {
   return (
     <div id="rectangulo2">
       <h1>Estadísticas de jugador</h1>
-      <p> id de ejemplo LPRJ008RU 9JLGVYRJ2 jugador maxeado: PPCRRR0 P9QJYV9PU</p>
       <div className='container'>
         <div className="jugador">
           <div className='header'>
@@ -112,8 +110,8 @@ function Calculadora(props) {
             </div>
           </div>
           <div className='change-tag'>
+          <p style={{marginLeft:"11px", marginTop:"0px"}}>Cambiar jugador:</p>
             <Link to="/">
-              <p></p>
               <button class="butons" style={{ marginLeft: "10px" }}>Volver al menu</button>
             </Link>
           </div>
@@ -126,8 +124,8 @@ function Calculadora(props) {
           <div style={{ display: "flex" }}>
             <div className='imgs'>
               {thlvl >= 1 && thlvl <= 15 && <img alt="ayuntamiento" src={thImages[thlvl]} className="imgs-aldeas" style={{ width: "55px", height: "55px" }} />}
-              {dataProfile.trophies && <img alt="trofeos" src={images.highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
-              {dataProfile.trophies && <img alt="img" src={images.attackBarbarian} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
+              {dataProfile.trophies && <img alt="trofeos" src={images.highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px", marginBottom:"0px" }} />}
+              {dataProfile.trophies && <img alt="img" src={images.attackBarbarian} className="imgs-aldeas" style={{ width: "50px", height: "50px", marginBottom:"6px"}} />}
               {dataProfile.trophies && <img alt="img" src={images.shield} className="imgs-aldeas" style={{ width: "50px", height: "50px", position: "relative", right: "-7px" }} />}
             </div>
             <div className='margin'>
@@ -196,9 +194,9 @@ function Calculadora(props) {
               {elixirOscuroRobado && <img alt="img" src={images.elixirOscuro} className="imgs-aldeas" style={{ width: "40px", height: "40px", position: "relative", top: "15px" }} />}
             </div>
             <div className='margin'>
-              {{ oroRobado } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Oro robado total: {oroRobado}</p>}
-              {{ elixirRobado } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Elixir robado total: {elixirRobado}</p>}
-              {{ elixirOscuroRobado } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Elixir oscuro robado total: {elixirOscuroRobado}</p>}
+              {{ oroRobado } && <p className='txts-aldeas' style={{ marginLeft: "-12px" }}>Oro robado total: {oroRobado}</p>}
+              {{ elixirRobado } && <p className='txts-aldeas' style={{ marginLeft: "-12px" }}>Elixir robado total: {elixirRobado}</p>}
+              {{ elixirOscuroRobado } && <p className='txts-aldeas' style={{ marginLeft: "-12px" }}>Elixir oscuro robado total: {elixirOscuroRobado}</p>}
             </div>
           </div>
         </div>
@@ -424,63 +422,3 @@ function Calculadora(props) {
 
 export default Calculadora;
 //QJL8G2PRL
-/* calculadora de gallo
- <p>compañerismo mensual={dataProfile.clan.donations / dataProfile.clan.donationsReceived}</p>
-
- <h1>skill de temporada ={Math.round((6000/dataProfile.trophies) / dataProfile.attackWins * dataProfile.townHallLevel)}</h1>
-  <h2>ranking del jugador={dataProfile.seasonRankedPlayer}</h2>
-
-
-        <h3>ranking del jugador={dataProfile.seasonRankedPlayer}</h3>
-      </div>
-      <div>
-        {dataProfile.trophies >= 799 ? ( //muestra las ligas
-          <img src="bronze.png" />
-        ) : dataProfile.trophies >= 1399 ? (
-          <img src="silver.png" />
-        )
-         : dataProfile.trophies >= 1999 ?
-        (
-          <img src="gold.png" />
-        )
-       : dataProfile.trophies >= 2599 ? (
-          <img src="cristal.png" />
-        )
-       : dataProfile.trophies >= 3199 ? (
-          <img src="master.png" />
-        ) : dataProfile.trophies >= 4099 ? (
-          <img src="champs.png" />
-        ) : dataProfile.trophies >= 4999 ? (
-          <img src="titan.png" />
-        ) : dataProfile.trophies >= 5000 ? (
-          <img src="legend.png" />
-        )
-      }
-      </div>*/
-/*
-      <h2>skill general = {Math.round(skillGeneral)}</h2>
-      {buenaskillg ? (
-        <p>mejor que la mayoria</p>
-      ) : (
-        <p>estas mas o menos</p>
-      )}
-      <h3>skill temporal = {Math.round(skilltemporada)}</h3>
-      {buenaskillt ? (
-        <p>sali afuera por favor</p>
-      ) : (
-        <p>mantenete al dia</p>
-      )}
-      <h4> skill choreal = {Math.round(skilldechoro)}</h4>
-      {buenaskillc ? (
-        <p>estas como para ser politico</p>
-      ) : (
-        <p>buen ciudadano!</p>
-      )}
-      <h4> compañerismo = {Math.round(compañerismomensual)}</h4>
-      {buenaskillco ? (
-        <p>buen compañero de clan</p>
-      ) : (
-        <p>mala persona</p>
-      )}
-
-*/

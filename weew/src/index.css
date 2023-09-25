@@ -52,7 +52,7 @@ code {
 .jugador {
   text-align: left;
   background-color: aliceblue;
-  width: 305px;
+  width: 310px;
   height: auto;
   border-radius: 10px;
   color: black;
@@ -154,7 +154,7 @@ code {
 .txts-participacion {
   margin-top: 23px;
   margin-bottom: 37px;
-  margin-left: -10px;
+  margin-left: -18px;
 }
 
 .h1-aldea-nocturna {
