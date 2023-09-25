@@ -31,8 +31,8 @@ function Calculadora(props) {
   const buenaskillc = skilldechoro <= 5 //no se cuanto seria el numero aca aca
   const buenaskillco = compañerismomensual <= 5//tampoco se que poner aca
   //objets destroyed 
-  let wlaasdestroyed = dataProfile.achievements && dataProfile.achievements[9] ? dataProfile.achievements[9].value : 0;
-  let thdestroyed =dataProfile.achievements && dataProfile.achievements[10] ? dataProfile.achievements[10].value : 0;
+  let wallsdestroyed = dataProfile.achievements && dataProfile.achievements[9] ? dataProfile.achievements[9].value : 0;
+  let thdestroyed = dataProfile.achievements && dataProfile.achievements[10] ? dataProfile.achievements[10].value : 0;
   let builderhutsdestroyer = dataProfile.achievements && dataProfile.achievements[11] ? dataProfile.achievements[11].value : 0;
   let mortarsdestroyer = dataProfile.achievements && dataProfile.achievements[15] ? dataProfile.achievements[15].value : 0;
   let XBowsdestroyed = dataProfile.achievements && dataProfile.achievements[18] ? dataProfile.achievements[18].value : 0;
@@ -40,8 +40,8 @@ function Calculadora(props) {
   let EagleArtilleriesdestroyed = dataProfile.achievements && dataProfile.achievements[22] ? dataProfile.achievements[22].value : 0;
   let BuilderHalls = dataProfile.achievements && dataProfile.achievements[27] ? dataProfile.achievements[27].value : 0;
   let Scattershotsdestroyed = dataProfile.achievements && dataProfile.achievements[36] ? dataProfile.achievements[36].value : 0;
-  let SpellTowersDestroyed= dataProfile.achievements && dataProfile.achievements[43] ? dataProfile.achievements[43].value : 0;
-  let TotalMonolithsDestroyed= dataProfile.achievements && dataProfile.achievements[44] ? dataProfile.achievements[44].value : 0;
+  let SpellTowersDestroyed = dataProfile.achievements && dataProfile.achievements[43] ? dataProfile.achievements[43].value : 0;
+  let TotalMonolithsDestroyed = dataProfile.achievements && dataProfile.achievements[44] ? dataProfile.achievements[44].value : 0;
 
 
   const thImages = {
@@ -88,9 +88,8 @@ function Calculadora(props) {
 
   return (
     <div id="rectangulo2">
-      <h1> Calculadora de skills </h1>
+      <h1>Estadísticas de jugador</h1>
       <div className='container'>
-
         <div className="jugador">
           <div className='header'>
             <h1 className='h1'>Jugador</h1>
@@ -113,7 +112,7 @@ function Calculadora(props) {
           <div className='change-tag'>
             <Link to="/">
               <p></p>
-              <button style={{ marginLeft: "10px" }}>Volver al menu</button>
+              <button class="butons" style={{ marginLeft: "10px" }}>Volver al menu</button>
             </Link>
           </div>
         </div>
@@ -142,7 +141,7 @@ function Calculadora(props) {
           <div className='header'>
             <h1 className='h1-aldea-nocturna'>Aldea nocturna</h1>
           </div>
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", height: "280px", }}>
             <div className='imgs'>
               {allvl >= 1 && allvl <= 15 && <img alt="img" src={alImages[allvl]} className="imgs-aldeas" style={{ width: "55px", height: "55px" }} />}
               {dataProfile.trophies && <img alt="img" src={images.highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px" }} />}
@@ -162,7 +161,7 @@ function Calculadora(props) {
           <div className='header'>
             <h1 className='h1-clan'>Participacion en clan</h1>
           </div>
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <div className='imgs'>
               {dataProfile.role === "member" && <img src={rolImages[1]} alt="Member" className="imgs-aldeas" style={{ width: '40px', height: '40px' }} />}
               {dataProfile.role === "elder" && <img src={rolImages[2]} alt="Veterano" className="imgs-aldeas" style={{ width: '40px', height: '40px' }} />}
@@ -173,7 +172,10 @@ function Calculadora(props) {
               {tropasDonadasTotal && <img src={images.lanzarocasMaq} alt="troop" className="imgs-aldeas" style={{ width: '45px', height: '45px' }} />}
             </div>
             <div className="margin">
-              {dataProfile.role && <p className='txts-participacion'>Rol: {dataProfile.role}</p>}
+              {dataProfile.role === "member" && <p className='txts-participacion'>Rol: miembro</p>}
+              {dataProfile.role === "elder" && <p className='txts-participacion'>Rol: veterano</p>}
+              {dataProfile.role === "coleader" && <p className='txts-participacion'>Rol: cólider</p>}
+              {dataProfile.role === "leader" && <p className='txts-participacion'>Rol: líder</p>}
               {{ tropasDonadasTotal } && <p className='txts-participacion'>Total de tropas donadas: {tropasDonadasTotal}</p>}
               {{ hechizosDonados } && <p className='txts-participacion'>Total de hechizos donados: {hechizosDonados}</p>}
               {{ maquinasDonadas } && <p className='txts-participacion'>Total de máquinas donadas: {maquinasDonadas}</p>}
@@ -185,7 +187,7 @@ function Calculadora(props) {
           <div className='header'>
             <h1 className='h1-recursos'>Recursos saqueados</h1>
           </div>
-          <div style={{ display: "flex" }}>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <div className='imgs' style={{ marginTop: "10px", marginLeft: "2px" }}>
               {oroRobado && <img alt="img" src={images.oro} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               {elixirRobado && <img alt="img" src={images.elixir} className="imgs-aldeas" style={{ width: "40px", height: "40px", position: "relative", top: "10px" }} />}
@@ -204,19 +206,19 @@ function Calculadora(props) {
             <h1 className='h1-recursos'>Otros recursos</h1>
           </div>
           <div style={{ display: "flex" }}>
-            <div className='imgs' style={{ marginTop: "15px", marginLeft: "2px" }}>
-            {{ oroCapital } && <img alt="oro capital" src={images.oroCapitalImg} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
-            { dataProfile.warStars && <img alt="estrellas guerra" src={images.guerraClanes} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "20px" }} />}
-            {{ warLeagueStars } && <img alt="estrellas guerra liga" src={images.guerraClanesLiga} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "20px" }} />}
-            {{ clanGamePoints } && <img alt="puntos juegos clan" src={images.puntosJuegosClan} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "15px" }} />}
-            {{ tesoreria } && <img alt="tesoreria" src={images.tesoreriaImg} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "10px" }} />}
+            <div className='imgs' style={{ marginLeft: "2px" }}>
+              {{ oroCapital } && <img alt="oro capital" src={images.oroCapitalImg} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              {dataProfile.warStars && <img alt="estrellas guerra" src={images.guerraClanes} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "10px" }} />}
+              {{ warLeagueStars } && <img alt="estrellas guerra liga" src={images.guerraClanesLiga} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "5px" }} />}
+              {{ clanGamePoints } && <img alt="puntos juegos clan" src={images.puntosJuegosClan} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "5px" }} />}
+              {{ tesoreria } && <img alt="tesoreria" src={images.tesoreriaImg} className="imgs-aldeas" style={{ width: "40px", height: "40px", marginTop: "0px" }} />}
             </div>
             <div className='margin'>
-              {{ oroCapital } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Oro de Capital: {oroCapital}</p>}
-              {dataProfile.warStars && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Estrellas de Guerra: {dataProfile.warStars}</p>}
-              {{ warLeagueStars } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Estrellas de Guerra de Liga: { warLeagueStars }</p>}
-              {{ clanGamePoints } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Puntos de juegos de Clan: { clanGamePoints }</p>}
-              {{ tesoreria } && <p className='txts-aldeas' style={{ marginLeft: "-5px" }}>Tesoreria: { tesoreria }</p>}
+              {{ oroCapital } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Oro de Capital: {oroCapital}</p>}
+              {dataProfile.warStars && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "0px", marginBottom: "30px" }}>Estrellas de Guerra: {dataProfile.warStars}</p>}
+              {{ warLeagueStars } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "0px", marginBottom: "30px" }}>Estrellas de Guerra de Liga: {warLeagueStars}</p>}
+              {{ clanGamePoints } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "0px", marginBottom: "30px" }}>Puntos de juegos de Clan: {clanGamePoints}</p>}
+              {{ tesoreria } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginBottom: "0px" }}>Tesoreria: {tesoreria}</p>}
             </div>
           </div>
         </div>
@@ -357,9 +359,6 @@ function Calculadora(props) {
           )}
         </div>
       </div>
-
-
-
       <h2>skill general = {Math.round(skillGeneral)}</h2>
       {buenaskillg ? (
         <p>mejor que la mayoria</p>
@@ -375,17 +374,7 @@ function Calculadora(props) {
       <h4> skill choreal = {Math.round(skilldechoro)}</h4>
       {buenaskillc ? (
         <p>estas como para ser politico</p>
-      ) : (
-        <p>buen ciudadano!</p>
-      )}
-      <h4> compañerismo = {Math.round(compañerismomensual)}</h4>
-      {buenaskillco ? (
-        <p>buen compañero de clan</p>
-      ) : (
-        <p>mala persona</p>
-      )}
-
-
+      ) : "si"}
     </div>
   );
 }
@@ -425,15 +414,30 @@ export default Calculadora;
         )
       }
       </div>*/
-
 /*
-  if(dataProfile.role = "member"){
-    <img src="rolImages[1]/>
-  } else if(dataProfile.role = "veterano"){
-    <img src="rolImages[2]/>
-   } else if(dataProfile.role = "colider"){
-    <img src="rolImages[3]/>
-   } else if(dataProfile.role = "lider"){
-    <img src="rolImages[3]/>
-  
+      <h2>skill general = {Math.round(skillGeneral)}</h2>
+      {buenaskillg ? (
+        <p>mejor que la mayoria</p>
+      ) : (
+        <p>estas mas o menos</p>
+      )}
+      <h3>skill temporal = {Math.round(skilltemporada)}</h3>
+      {buenaskillt ? (
+        <p>sali afuera por favor</p>
+      ) : (
+        <p>mantenete al dia</p>
+      )}
+      <h4> skill choreal = {Math.round(skilldechoro)}</h4>
+      {buenaskillc ? (
+        <p>estas como para ser politico</p>
+      ) : (
+        <p>buen ciudadano!</p>
+      )}
+      <h4> compañerismo = {Math.round(compañerismomensual)}</h4>
+      {buenaskillco ? (
+        <p>buen compañero de clan</p>
+      ) : (
+        <p>mala persona</p>
+      )}
+
 */

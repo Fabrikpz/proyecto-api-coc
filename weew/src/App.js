@@ -11,32 +11,34 @@ const developers = {
 function App() {
   const [input, setInput] = useState('');
   //const [dataProfile, setDataProfile] = useState({});
-  
+
   const handleInput = (event) => {
     setInput(event.target.value);
   }
 
   return (
     <div id="rectangulo">
-      <h1 class="titulo">🏹CLASH OF CLANS STATS🏹#QVYUVRPUP</h1>
+      <h1 class="titulo">🏹CLASH OF CLANS STATS🏹</h1>
       <div class="texto">
         <div class="bienvenida">
           <p>
-            ¡Bienvenido a nuestra plataforma para Clash of Clans! Ingresa tu ID y descubre tus estadísticas y habilidad al instante. ¡Mejora tu juego y domina el campo de batalla!
+            ¡Bienvenido a nuestra página web para Clash of Clans! Ingresa tu ID y descubre tus estadísticas y habilidad al instante. ¡Mejora tu juego y domina el campo de batalla!
           </p>
         </div>
-      <p>INGRESE SU ID:</p>
-      <input class="mimi" onChange={handleInput} value={input} placeholder="Ingrese su ID"></input><p></p>
-      <Link  to={`/calculadora/${input}`}>
-        <button class="butons">Obtener Datos</button>
-      </Link>
-      <p>🔥desarroladores🔥</p>
-      <div class = "desarolladores">
-      <img alt="trofeos" src={images.pocho} style={{ width: "50px", height: "50px" }}></img><p>silveyra🚗</p>
-      <img alt="Developers" src={images.sicc} style={{ width: "50px", height: "50px" }}></img><p>Masante🐱‍🐉</p>
-      <img alt="Developers" src={images.pat} className="imgs-aldeas" style={{ width: "50px", height: "50px" }}></img><p>Gallo</p>
-      <img alt="Developers" src={images.medran} className="imgs-aldeas" style={{ width: "50px", height: "50px" }}></img><p>Medrano🐧</p>
-      </div>
+        <h3>INGRESE SU ID:</h3>
+        <input className="mimi" onChange={handleInput} value={input} placeholder="Ingrese su ID"></input><p></p>
+        <Link to={`/calculadora/${input}`}>
+          <button class="button">Obtener Datos</button>
+        </Link>
+        <div style={{marginTop:"150px"}}>
+          <p>🔥Desarroladores🔥</p>
+          <div class="desarolladores">
+            <img alt="trofeos" src={images.pocho} style={{ width: "50px", height: "50px", marginRight: "5px", borderRadius: "3px" }}></img><p>Silveyra🚗</p>
+            <img alt="Developers" src={images.sicc} style={{ width: "50px", height: "50px", marginRight: "5px", borderRadius: "3px" }}></img><p>Masante🐱‍🐉</p>
+            <img alt="Developers" src={images.pat} style={{ width: "50px", height: "50px", marginRight: "5px", borderRadius: "3px" }}></img><p>Gallo✡</p>
+            <img alt="Developers" src={images.medran} style={{ width: "50px", height: "50px", marginRight: "5px", borderRadius: "3px" }}></img><p>Medrano🐧</p>
+          </div>
+        </div>
       </div>
     </div>
   );

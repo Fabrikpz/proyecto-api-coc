@@ -1,5 +1,5 @@
 body {
-  background-color:#ff8e00;
+  background-color: #ff8e00;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -7,7 +7,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  
+
 }
 
 #rectangulo {
@@ -17,9 +17,10 @@ body {
   margin: 5%;
   border-radius: 50px;
   border: #262525;
-  color:aliceblue;
-  
+  color: aliceblue;
+
 }
+
 #rectangulo2 {
   width: auto;
   height: auto;
@@ -27,9 +28,10 @@ body {
   margin: 5%;
   border-radius: 50px;
   border: #262525;
-  color:aliceblue;
+  color: aliceblue;
 }
-.titulo{
+
+.titulo {
   -webkit-text-stroke: 2px rgb(0, 0, 0);
   text-align: center;
   font-size: 250%;
@@ -40,11 +42,7 @@ code {
     monospace;
 }
 
-.mimi{
-  text-align: center;
-}
-
-.butons{
+.butons {
   background-color: #ff8e00;
   width: 200px;
   color: #ffffff;
@@ -70,23 +68,23 @@ code {
 }
 
 
-.imgs{
+.imgs {
   display: flex;
   flex-direction: column;
   height: auto;
   margin-left: 15px;
 }
 
-.trofeos{
+.trofeos {
   margin-left: 10px;
 }
 
-.margin{
+.margin {
   margin-left: 15px;
   text-align: left;
 }
 
-.header{
+.header {
   background-color: orange;
   color: aliceblue;
   border-top-left-radius: 10px;
@@ -94,114 +92,118 @@ code {
   margin-top: -22px;
 }
 
-.h1{
+.h1 {
   margin-left: 20px;
   position: relative;
   bottom: 3px;
-  text-shadow: -1px -1px 0 black, 
-  1px -1px 0 black,
-  -1px 1px 0 black,
-  1px 1px 0 black;
-}  
+  text-shadow: -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
+}
 
-.container{
+.container {
   display: flex;
   justify-content: space-evenly;
 }
 
-.container2{
+.container2 {
   display: flex;
   justify-content: space-evenly;
   margin-top: 15px;
 }
 
-.container3{
+.container3 {
   display: flex;
   justify-content: space-evenly;
   margin-top: 20px;
 }
 
-.container4{
+.container4 {
   display: flex;
   justify-content: space-evenly;
   margin-top: 15px;
 }
 
-.h1-aldea-main{
+.h1-aldea-main {
   margin-left: 5px;
   position: relative;
   bottom: 3px;
-  text-shadow: -1px -1px 0 black, 
-  1px -1px 0 black,
-  -1px 1px 0 black,
-  1px 1px 0 black;
+  text-shadow: -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
   margin-bottom: 2px;
-}  
-.imgs-aldeas{
+}
+
+.imgs-aldeas {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.txts-aldeas{
+
+.txts-aldeas {
   margin-top: 29px;
   margin-bottom: 46px;
 }
-.txts-aldeas{
+
+.txts-aldeas {
   margin-top: 29px;
   margin-bottom: 46px;
 }
-.txts-participacion{
+
+.txts-participacion {
   margin-top: 23px;
   margin-bottom: 37px;
   margin-left: -10px;
 }
 
-.h1-aldea-nocturna{
+.h1-aldea-nocturna {
   margin-left: 3px;
   position: relative;
   bottom: 3px;
-  text-shadow: -1px -1px 0 black, 
-  1px -1px 0 black,
-  -1px 1px 0 black,
-  1px 1px 0 black;
+  text-shadow: -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
   margin-bottom: 2px;
-} 
+}
 
-.h1-clan{
+.h1-clan {
   margin-left: 3px;
   position: relative;
   bottom: 3px;
-  text-shadow: -1px -1px 0 black, 
-  1px -1px 0 black,
-  -1px 1px 0 black,
-  1px 1px 0 black;
+  text-shadow: -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
   font-size: 30px;
   margin-bottom: 0px;
 }
 
-.h1-recursos{
+.h1-recursos {
   margin-left: 5px;
   position: relative;
   bottom: 3px;
-  text-shadow: -1px -1px 0 black, 
-  1px -1px 0 black,
-  -1px 1px 0 black,
-  1px 1px 0 black;
+  text-shadow: -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
   margin-bottom: 2px;
   font-size: 30px;
-}  
+}
 
-.texto{
+.texto {
   text-align: center;
   text-size-adjust: 50px;
 }
 
-.bienvenida{
+.bienvenida {
   font-size: 130%;
   margin-left: 100px;
   margin-right: 100px;
 }
 
-.cosas-destruidas{
+.cosas-destruidas {
   text-align: left;
   background-color: aliceblue;
   width: 1000px;
@@ -209,12 +211,13 @@ code {
   border-radius: 10px;
   color: black;
 }
-.h1-destruidas{
+
+.h1-destruidas {
   text-align: center;
-  text-shadow: -1px -1px 0 black, 
-  1px -1px 0 black,
-  -1px 1px 0 black,
-  1px 1px 0 black;
+  text-shadow: -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
   margin-bottom: 2px;
   font-size: 30px;
 }
@@ -223,21 +226,29 @@ code {
   display: flex;
   flex-direction: column;
   width: 600px;
-  margin: 0 auto; /*centra*/
+  margin: 0 auto;
+  /*centra*/
   margin-top: 6px;
 }
+
 .fila {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
+
 .item {
-  width: calc(25% - 10px); /* Establece el ancho de cada elemento (25% - márgenes) */
+  width: calc(25% - 10px);
+  /* Establece el ancho de cada elemento (25% - márgenes) */
   text-align: center;
-  border: 1px solid #ccc; /* Borde para visualizar mejor los elementos */
-  padding: 10px; /* Espaciado interno para mejor apariencia */
-  box-sizing: border-box; /* Incluye el borde en el cálculo del tamaño */
-  margin: 0 5px; /* Espacio horizontal entre los elementos */
+  border: 1px solid #ccc;
+  /* Borde para visualizar mejor los elementos */
+  padding: 10px;
+  /* Espaciado interno para mejor apariencia */
+  box-sizing: border-box;
+  /* Incluye el borde en el cálculo del tamaño */
+  margin: 0 5px;
+  /* Espacio horizontal entre los elementos */
 }
 
 /*ajustes para ultima fila */
@@ -245,7 +256,7 @@ code {
   justify-content: center;
 }
 
-.ejercito{
+.ejercito {
   text-align: left;
   background-color: aliceblue;
   width: 1000px;
@@ -253,51 +264,80 @@ code {
   border-radius: 10px;
   color: black;
 }
-.h1-tropas{
+
+.h1-tropas {
   text-align: center;
-  text-shadow: -1px -1px 0 black, 
-  1px -1px 0 black,
-  -1px 1px 0 black,
-  1px 1px 0 black;
+  text-shadow: -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
   margin-bottom: 2px;
   font-size: 30px;
 }
 
-.btns{
+.btns {
   display: flex;
   justify-content: center;
   padding: 10px;
 }
 
-.txt-clan{
+.txt-clan {
   margin-top: 30px;
   margin-left: 15px;
   text-align: left;
 }
 
-#ejercito-principal{
+#ejercito-principal {
   margin-left: 2px;
   margin-right: 2px;
 }
-.hechizos{
+
+.hechizos {
   margin-top: 8px;
 }
-.heroes{
+
+.heroes {
   margin-top: 8px;
 }
-.mascotas{
+
+.mascotas {
   margin-top: 8px;
 }
-.maquinas{
+
+.maquinas {
   margin-top: 8px;
 }
-.txts-recursos{
+
+.txts-recursos {
   margin-top: 24445px;
   margin-bottom: 25px;
 }
 
-.desarolladores{
+.desarolladores {
   display: flex;
-  justify-content:center;
-  align-items: end;
+  justify-content: center;
+
+}
+
+.button {
+  background-color: #ff8e00;
+  width: 180px;
+  color: #ffffff;
+  height: 30px;
+  border-radius: 10px;
+}
+
+.mimi {
+  width: 150px;
+  height: 12px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  text-align: center;
+}
+
+.input-container input::placeholder {
+  color: #999;
 }
