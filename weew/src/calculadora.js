@@ -89,6 +89,7 @@ function Calculadora(props) {
   return (
     <div id="rectangulo2">
       <h1>Estadísticas de jugador</h1>
+      <p> id de ejemplo LPRJ008RU 9JLGVYRJ2 jugador maxeado: PPCRRR0 P9QJYV9PU</p>
       <div className='container'>
         <div className="jugador">
           <div className='header'>
@@ -229,23 +230,56 @@ function Calculadora(props) {
           <div className='header'>
             <h1 className='h1-destruidas'>Estructuras destruidas</h1>
           </div>
-          <div class="grilla-destruidas">
+          <div class="grilla-destruidas" style= {{display: "box"}}>
             <div class="fila">
-              <div class="item">Elemento 1</div>
-              <div class="item">Elemento 2</div>
-              <div class="item">Elemento 3</div>
-              <div class="item">Elemento 4</div>
+              <div class="item">
+              {{ wallsdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Muros: {wallsdestroyed}</p>}
+              {<img alt="img" src={images.Wall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
+              <div class="item">
+              {{ thdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Ayuntamientos: {thdestroyed}</p>}
+              {<img alt="img" src={images.TownHall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
+              <div class="item">
+              {{ builderhutsdestroyer } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Chozas de constructor: {builderhutsdestroyer}</p>}
+              {<img alt="img" src={images.BuilderHut} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
+              <div class="item">
+              {{ mortarsdestroyer } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Morteros: {mortarsdestroyer}</p>}
+              {<img alt="img" src={images.Mortar} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
             </div>
             <div class="fila">
-              <div class="item">Elemento 5</div>
-              <div class="item">Elemento 6</div>
-              <div class="item">Elemento 7</div>
-              <div class="item">Elemento 8</div>
+              <div class="item">
+              {{ XBowsdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Ballestas: {XBowsdestroyed}</p>}
+              {<img alt="img" src={images.XBow} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
+              <div class="item">
+              {{ InfernoTowersdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Torres infernales: {InfernoTowersdestroyed}</p>}
+              {<img alt="img" src={images.InfernoTower} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
+              <div class="item">
+              {{ EagleArtilleriesdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Artilleria: {EagleArtilleriesdestroyed}</p>}
+              {<img alt="img" src={images.EagleArtillery} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
+              <div class="item">
+              {{BuilderHalls } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Buider Halls: {BuilderHalls}</p>}
+              {<img alt="img" src={images.BuilderHall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
             </div>
             <div class="fila">
-              <div class="item">Elemento 9</div>
-              <div class="item">Elemento 10</div>
-              <div class="item">Elemento 11</div>
+              <div class="item">
+              {{Scattershotsdestroyed} && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Scatter Shots: {Scattershotsdestroyed}</p>}
+              {<img alt="img" src={images.Scattershot} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
+              <div class="item">
+              {{ SpellTowersDestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Torres de hechizos: {SpellTowersDestroyed}</p>}
+              {<img alt="img" src={images.SpellTower} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
+              <div class="item">
+              {{ TotalMonolithsDestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Monolitos: {TotalMonolithsDestroyed}</p>}
+              {<img alt="img" src={images.Monolith} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+              </div>
             </div>
           </div>
         </div>
@@ -359,22 +393,24 @@ function Calculadora(props) {
           )}
         </div>
       </div>
-      <h2>skill general = {Math.round(skillGeneral)}</h2>
+      <h2>Skill General = {Math.round(skillGeneral)}</h2>
       {buenaskillg ? (
         <p>mejor que la mayoria</p>
       ) : (
         <p>estas mas o menos</p>
       )}
-      <h3>skill temporal = {Math.round(skilltemporada)}</h3>
+      <h3>Skill Temporal = {Math.round(skilltemporada)}</h3>
       {buenaskillt ? (
         <p>sali afuera por favor</p>
       ) : (
         <p>mantenete al dia</p>
       )}
-      <h4> skill choreal = {Math.round(skilldechoro)}</h4>
+      <h4> Skill Choreal = {Math.round(skilldechoro)}</h4>
       {buenaskillc ? (
-        <p>estas como para ser politico</p>
-      ) : "si"}
+        <p>estas como para ser politico {/* bien unfunny */}</p>
+      ) : (
+        <p>buen ciudadano que no roba</p>
+      )}
     </div>
   );
 }

@@ -205,7 +205,7 @@ code {
 
 .cosas-destruidas {
   text-align: left;
-  background-color: aliceblue;
+  background-color: white;
   width: 1000px;
   height: auto;
   border-radius: 10px;
@@ -227,7 +227,6 @@ code {
   flex-direction: column;
   width: 600px;
   margin: 0 auto;
-  /*centra*/
   margin-top: 6px;
 }
 
@@ -239,16 +238,14 @@ code {
 
 .item {
   width: calc(25% - 10px);
-  /* Establece el ancho de cada elemento (25% - márgenes) */
   text-align: center;
+  color: white;
   border: 1px solid #ccc;
-  /* Borde para visualizar mejor los elementos */
   padding: 10px;
-  /* Espaciado interno para mejor apariencia */
   box-sizing: border-box;
-  /* Incluye el borde en el cálculo del tamaño */
   margin: 0 5px;
-  /* Espacio horizontal entre los elementos */
+  background-color: orange;
+  border-radius: 5px;
 }
 
 /*ajustes para ultima fila */
