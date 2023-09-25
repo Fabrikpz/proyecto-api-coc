@@ -20,15 +20,16 @@ function Calculadora(props) {
   let warLeagueStars = dataProfile.achievements && dataProfile.achievements[33] ? dataProfile.achievements[33].value : 0;
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
   let oroCapital = dataProfile.achievements && dataProfile.achievements[41] ? dataProfile.achievements[41].value : 0;
+  let donacionesrecividas=data.Profile.donationsReceived;
   //skills
-  const skillGeneral = dataProfile.achievements && (dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) / 0.75;
+  const skillGeneral = dataProfile.achievements && (dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) ;
   const skilltemporada = dataProfile.achievements && Math.round((6000 / dataProfile.trophies) * dataProfile.attackWins);
-  const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
-  const compañerismomensual = dataProfile.donations / dataProfile.received;
+  const skilldechoro = (((oroRobado + elixirRobado + (elixirOscuroRobado)*10)/3) / victoriasAtaqueTotales*100) / 2;
+  const compañerismomensual = ((maquinasDonadas + hechizosDonados + tropasDonadasTotal)/donacionesrecividas)
   //calificadorde skills
-  const buenaskillg = skillGeneral <= 50;
+  const buenaskillg = skillGeneral <= 45;
   const buenaskillt = skilltemporada >= 10
-  const buenaskillc = skilldechoro <= 5 //no se cuanto seria el numero aca aca
+  const buenaskillc = skilldechoro <= 1000 //no se cuanto seria el numero aca aca
   const buenaskillco = compañerismomensual <= 5//tampoco se que poner aca
   //objets destroyed 
   let wallsdestroyed = dataProfile.achievements && dataProfile.achievements[9] ? dataProfile.achievements[9].value : 0;
@@ -407,9 +408,15 @@ function Calculadora(props) {
       )}
       <h4> Skill Choreal = {Math.round(skilldechoro)}</h4>
       {buenaskillc ? (
-        <p>estas como para ser politico {/* bien unfunny */}</p>
+        <p>estas como para ser politico {}</p>
       ) : (
         <p>buen ciudadano que no roba</p>
+      )}
+<h4> Skill Donadora = {Math.round(compañerismomensual)}</h4>
+      {buenaskillco ? (
+        <p>miembro productivo del clan {}</p>
+      ) : (
+        <p>no seas garca y dona mas</p>
       )}
     </div>
   );
