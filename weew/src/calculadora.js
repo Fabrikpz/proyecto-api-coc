@@ -20,17 +20,17 @@ function Calculadora(props) {
   let warLeagueStars = dataProfile.achievements && dataProfile.achievements[33] ? dataProfile.achievements[33].value : 0;
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
   let oroCapital = dataProfile.achievements && dataProfile.achievements[41] ? dataProfile.achievements[41].value : 0;
-  
-  const skillGeneral = dataProfile.achievements && (dataProfile.trophies / victoriasAtaqueTotales * dataProfile.townHallLevel) / 0.75;
+
+  const skillGeneral = (dataProfile.trophies / 6500) * (dataProfile.expLevel / dataProfile.townHallLevel);
   const skilltemporada = dataProfile.achievements && Math.round((6000 / dataProfile.trophies) * dataProfile.attackWins);
   const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
   const compañerismomensual = dataProfile.donations / dataProfile.received;
   //calificadorde skills
-  const buenaskillg = skillGeneral <= 50;
-  const buenaskillt = skilltemporada >= 10
+  const buenaskillg = skillGeneral >= 50; //ipuyhyrhrnee
+  const buenaskillt = skilltemporada >= 25
   const buenaskillc = skilldechoro <= 5 //no se cuanto seria el numero aca aca
   const buenaskillco = compañerismomensual <= 5
-  
+
   //objets destroyed 
   let wallsdestroyed = dataProfile.achievements && dataProfile.achievements[9] ? dataProfile.achievements[9].value : 0;
   let thdestroyed = dataProfile.achievements && dataProfile.achievements[10] ? dataProfile.achievements[10].value : 0;
@@ -110,7 +110,7 @@ function Calculadora(props) {
             </div>
           </div>
           <div className='change-tag'>
-          <p style={{marginLeft:"11px", marginTop:"0px"}}>Cambiar jugador:</p>
+            <p style={{ marginLeft: "11px", marginTop: "0px" }}>Cambiar jugador:</p>
             <Link to="/">
               <button class="butons" style={{ marginLeft: "10px" }}>Volver al menu</button>
             </Link>
@@ -124,8 +124,8 @@ function Calculadora(props) {
           <div style={{ display: "flex" }}>
             <div className='imgs'>
               {thlvl >= 1 && thlvl <= 15 && <img alt="ayuntamiento" src={thImages[thlvl]} className="imgs-aldeas" style={{ width: "55px", height: "55px" }} />}
-              {dataProfile.trophies && <img alt="trofeos" src={images.highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px", marginBottom:"0px" }} />}
-              {dataProfile.trophies && <img alt="img" src={images.attackBarbarian} className="imgs-aldeas" style={{ width: "50px", height: "50px", marginBottom:"6px"}} />}
+              {dataProfile.trophies && <img alt="trofeos" src={images.highestTrophies} className="imgs-aldeas" style={{ width: "50px", height: "50px", marginBottom: "0px" }} />}
+              {dataProfile.trophies && <img alt="img" src={images.attackBarbarian} className="imgs-aldeas" style={{ width: "50px", height: "50px", marginBottom: "6px" }} />}
               {dataProfile.trophies && <img alt="img" src={images.shield} className="imgs-aldeas" style={{ width: "50px", height: "50px", position: "relative", right: "-7px" }} />}
             </div>
             <div className='margin'>
@@ -229,55 +229,55 @@ function Calculadora(props) {
           <div className='header'>
             <h1 className='h1-destruidas'>Estructuras destruidas</h1>
           </div>
-          <div class="grilla-destruidas" style= {{display: "box"}}>
+          <div class="grilla-destruidas" style={{ display: "box" }}>
             <div class="fila">
               <div class="item">
-              {{ wallsdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Muros: {wallsdestroyed}</p>}
-              {<img alt="img" src={images.Wall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ wallsdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Muros: {wallsdestroyed}</p>}
+                {<img alt="img" src={images.Wall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
-              {{ thdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Ayuntamientos: {thdestroyed}</p>}
-              {<img alt="img" src={images.TownHall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ thdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Ayuntamientos: {thdestroyed}</p>}
+                {<img alt="img" src={images.TownHall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
-              {{ builderhutsdestroyer } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Chozas de constructor: {builderhutsdestroyer}</p>}
-              {<img alt="img" src={images.BuilderHut} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ builderhutsdestroyer } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Chozas de constructor: {builderhutsdestroyer}</p>}
+                {<img alt="img" src={images.BuilderHut} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
-              {{ mortarsdestroyer } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Morteros: {mortarsdestroyer}</p>}
-              {<img alt="img" src={images.Mortar} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ mortarsdestroyer } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Morteros: {mortarsdestroyer}</p>}
+                {<img alt="img" src={images.Mortar} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
             </div>
             <div class="fila">
               <div class="item">
-              {{ XBowsdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Ballestas: {XBowsdestroyed}</p>}
-              {<img alt="img" src={images.XBow} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ XBowsdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Ballestas: {XBowsdestroyed}</p>}
+                {<img alt="img" src={images.XBow} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
-              {{ InfernoTowersdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Torres infernales: {InfernoTowersdestroyed}</p>}
-              {<img alt="img" src={images.InfernoTower} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ InfernoTowersdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Torres infernales: {InfernoTowersdestroyed}</p>}
+                {<img alt="img" src={images.InfernoTower} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
-              {{ EagleArtilleriesdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Artilleria: {EagleArtilleriesdestroyed}</p>}
-              {<img alt="img" src={images.EagleArtillery} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ EagleArtilleriesdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Artilleria: {EagleArtilleriesdestroyed}</p>}
+                {<img alt="img" src={images.EagleArtillery} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
-              {{BuilderHalls } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Buider Halls: {BuilderHalls}</p>}
-              {<img alt="img" src={images.BuilderHall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ BuilderHalls } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Buider Halls: {BuilderHalls}</p>}
+                {<img alt="img" src={images.BuilderHall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
             </div>
             <div class="fila">
               <div class="item">
-              {{Scattershotsdestroyed} && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Scatter Shots: {Scattershotsdestroyed}</p>}
-              {<img alt="img" src={images.Scattershot} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ Scattershotsdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Scatter Shots: {Scattershotsdestroyed}</p>}
+                {<img alt="img" src={images.Scattershot} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
-              {{ SpellTowersDestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Torres de hechizos: {SpellTowersDestroyed}</p>}
-              {<img alt="img" src={images.SpellTower} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ SpellTowersDestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Torres de hechizos: {SpellTowersDestroyed}</p>}
+                {<img alt="img" src={images.SpellTower} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
-              {{ TotalMonolithsDestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Monolitos: {TotalMonolithsDestroyed}</p>}
-              {<img alt="img" src={images.Monolith} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
+                {{ TotalMonolithsDestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Monolitos: {TotalMonolithsDestroyed}</p>}
+                {<img alt="img" src={images.Monolith} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
             </div>
           </div>
@@ -296,7 +296,11 @@ function Calculadora(props) {
           {mostrarContenido1 && (
             <div className='ejercito-principal'>
               <div className='tropas-principal'>
-                {dataProfile.troops[0]?.name === "Barbarian" ? <img alt="troop" src={images.barbarian} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[0]?.name === "Barbarian" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.barbarian} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[0].level}</div>
+                  </div> </>) : null}
                 {dataProfile.troops[1]?.name === "Archer" ? <img alt="troop" src={images.arquera} style={{ width: "60px", height: "60px" }} /> : null}
                 {dataProfile.troops[2]?.name === "Goblin" ? <img alt="troop" src={images.duende} style={{ width: "60px", height: "60px" }} /> : null}
                 {dataProfile.troops[3]?.name === "Giant" ? <img alt="troop" src={images.gigante} style={{ width: "60px", height: "60px" }} /> : null}
@@ -325,7 +329,11 @@ function Calculadora(props) {
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Apprentice Warden")]?.name === "Apprentice Warden" ? <img alt="troop" src={images.aprendiz} style={{ width: "60px", height: "60px" }} /> : null}
               </div>
               <div className='hechizos'>
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Lightning Spell")]?.name === "Lightning Spell" ? <img alt="troop" src={images.rayo} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Lightning Spell")]?.name === "Lightning Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.rayo} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Lightning Spell")].level}</div></div>
+                  </> : null}
                 {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Healing Spell")]?.name === "Healing Spell" ? <img alt="troop" src={images.curacion} style={{ width: "60px", height: "60px" }} /> : null}
                 {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Rage Spell")]?.name === "Rage Spell" ? <img alt="troop" src={images.furia} style={{ width: "60px", height: "60px" }} /> : null}
                 {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Jump Spell")]?.name === "Jump Spell" ? <img alt="troop" src={images.salto} style={{ width: "60px", height: "60px" }} /> : null}
@@ -341,13 +349,21 @@ function Calculadora(props) {
               </div>
               {dataProfile.heroes &&
                 <div className='heroes'>
-                  <img alt="rey" src={images.reyBarbaro} style={{ width: "60px", height: "60px" }} />
-                  {thlvl >= 9 && <img alt="reina" src={images.reinaArquera} style={{ width: "60px", height: "60px" }} />}
-                  {thlvl >= 11 && <img alt="centi" src={images.centinela} style={{ width: "60px", height: "60px" }} />}
-                  {thlvl >= 13 && <img alt="champ" src={images.campeona} style={{ width: "60px", height: "60px" }} />}
+                  {thlvl >= 8 ? (
+                    <> <div className='troop-container'>
+                      <img alt="rey" src={images.reyBarbaro} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Barbarian King")].level}</div></div>
+                    </>) : null}
+                  {thlvl >= 9 ? <img alt="reina" src={images.reinaArquera} style={{ width: "60px", height: "60px" }} /> : null}
+                  {thlvl >= 11 ? <img alt="centi" src={images.centinela} style={{ width: "60px", height: "60px" }} /> : null}
+                  {thlvl >= 13 ? <img alt="champ" src={images.campeona} style={{ width: "60px", height: "60px" }} /> : null}
                 </div>}
               <div className='mascotas'>
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "L.A.S.S.I")]?.name === "L.A.S.S.I" ? <img alt="troop" src={images.lassi} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "L.A.S.S.I")]?.name === "L.A.S.S.I" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.lassi} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "L.A.S.S.I")].level}</div></div>
+                  </> : null}
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Mighty Yak")]?.name === "Mighty Yak" ? <img alt="troop" src={images.mightyyak} style={{ width: "60px", height: "60px" }} /> : null}
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Owl")]?.name === "Electro Owl" ? <img alt="troop" src={images.electroowl} style={{ width: "60px", height: "60px" }} /> : null}
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Unicorn")]?.name === "Unicorn" ? <img alt="troop" src={images.unicorn} style={{ width: "60px", height: "60px" }} /> : null}
@@ -357,7 +373,11 @@ function Calculadora(props) {
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Frosty")]?.name === "Frosty" ? <img alt="troop" src={images.frosty} style={{ width: "60px", height: "60px" }} /> : null}
               </div>
               <div className='maquinas'>
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Wall Wrecker")]?.name === "Wall Wrecker" ? <img alt="troop" src={images.rompemurosmaq} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Wall Wrecker")]?.name === "Wall Wrecker" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.rompemurosmaq} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Wall Wrecker")].level}</div></div>
+                  </> : null}
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Battle Blimp")]?.name === "Battle Blimp" ? <img alt="troop" src={images.dirigible} style={{ width: "60px", height: "60px" }} /> : null}
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Stone Slammer")]?.name === "Stone Slammer" ? <img alt="troop" src={images.lanzarocasMaq} style={{ width: "60px", height: "60px" }} /> : null}
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Siege Barracks")]?.name === "Siege Barracks" ? <img alt="troop" src={images.asedio} style={{ width: "60px", height: "60px" }} /> : null}
@@ -372,7 +392,11 @@ function Calculadora(props) {
             <div id="ejercito-nocturna">
               <div className='ejercito-principal'>
                 <div className='tropas-principal'>
-                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Raged Barbarian")]?.name === "Raged Barbarian" ? <img alt="troop" src={images.ragedbarbarian} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Raged Barbarian")]?.name === "Raged Barbarian" ?
+                    <> <div className='troop-container'>
+                      <img alt="troop" src={images.ragedbarbarian} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Raged Barbarian")].level}</div></div>
+                    </> : null}
                   {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Sneaky Archer")]?.name === "Sneaky Archer" ? <img alt="troop" src={images.sneakyarcher} style={{ width: "60px", height: "60px" }} /> : null}
                   {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Boxer Giant")]?.name === "Boxer Giant" ? <img alt="troop" src={images.boxergiant} style={{ width: "60px", height: "60px" }} /> : null}
                   {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Bomber")]?.name === "Bomber" ? <img alt="troop" src={images.bomber} style={{ width: "60px", height: "60px" }} /> : null}
@@ -384,7 +408,11 @@ function Calculadora(props) {
                   {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electrofire Wizard")]?.name === "Electrofire Wizard" ? <img alt="troop" src={images.electrofirewizard} style={{ width: "60px", height: "60px" }} /> : null}
                 </div>
                 <div className='heroes'>
-                  {dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Machine")]?.name === "Battle Machine" ? <img alt="troop" src={images.battlemachine} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Machine")]?.name === "Battle Machine" ?
+                    <><div className='troop-container'>
+                      <img alt="troop" src={images.battlemachine} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Machine")].level}</div></div>
+                    </> : null}
                   {dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Copter")]?.name === "Battle Copter" ? <img alt="troop" src={images.battlecopter} style={{ width: "60px", height: "60px" }} /> : null}
                 </div>
               </div>
@@ -392,33 +420,35 @@ function Calculadora(props) {
           )}
         </div>
       </div>
-      <h2>Skill General = {Math.round(skillGeneral)}</h2>
-      {buenaskillg ? (
-        <p>mejor que la mayoria</p>
-      ) : (
-        <p>estas mas o menos</p>
-      )}
-      <h3>Skill Temporal = {Math.round(skilltemporada)}</h3>
-      {buenaskillt ? (
-        <p>sali afuera por favor</p>
-      ) : (
-        <p>mantenete al dia</p>
-      )}
-      <h4> Skill Choreal = {Math.round(skilldechoro)}</h4>
-      {buenaskillc ? (
-        <p>estas como para ser politico {}</p>
-      ) : (
-        <p>buen ciudadano que no roba</p>
-      )}
-<h4> Skill Donadora = {Math.round(compañerismomensual)}</h4>
-      {buenaskillco ? (
-        <p>miembro productivo del clan {}</p>
-      ) : (
-        <p>no seas garca y dona mas</p>
-      )}
+      <div>
+        <h2>Skill General = {Math.round(skillGeneral)}</h2>
+        {buenaskillg ? (
+          <p>mejor que la mayoria</p>
+        ) : (
+          <p>estas mas o menos</p>
+        )}
+        <h3>Skill Temporal = {Math.round(skilltemporada)}</h3>
+        {buenaskillt ? (
+          <p>
+            te mantienes al dia
+          </p>
+        ) : (<p>no te mantienes al dia</p>
+        )}
+        <h4> Skill Choreal = {Math.round(skilldechoro)}</h4>
+        {buenaskillc ? (
+          <p>estas como para ser politico { }</p>
+        ) : (
+          <p>buen ciudadano que no roba</p>
+        )}
+        <h4> Skill Donadora = {Math.round(compañerismomensual)}</h4>
+        {buenaskillco ? (
+          <p>miembro productivo del clan { }</p>
+        ) : (
+          <p>no seas garca y dona mas</p>
+        )}
+      </div>
     </div>
   );
 }
 
 export default Calculadora;
-//QJL8G2PRL

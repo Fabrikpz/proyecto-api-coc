@@ -338,3 +338,20 @@ code {
 .input-container input::placeholder {
   color: #999;
 }
+
+.troop-container {
+  position: relative;
+  display: inline-block;
+}
+
+.troop-level {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  color: white;
+  padding: 2px 5px; 
+  font-size: 12px;
+  border-radius: 5px;
+  border: 2px solid white;
+}
