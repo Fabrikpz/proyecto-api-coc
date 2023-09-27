@@ -368,3 +368,12 @@ code {
   border-radius: 5px;
   border: 2px solid white;
 }
+
+.calculadora{
+  position: absolute;
+  border-radius: 10px;
+  border: 2px solid rgb(177, 41, 7);
+  font-size: 40px;
+  color:rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}

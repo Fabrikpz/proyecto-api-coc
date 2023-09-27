@@ -21,15 +21,15 @@ function Calculadora(props) {
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
   let oroCapital = dataProfile.achievements && dataProfile.achievements[41] ? dataProfile.achievements[41].value : 0;
 
-  const skillGeneral = (dataProfile.trophies / 6500) * (dataProfile.expLevel / dataProfile.townHallLevel);
-  const skilltemporada = dataProfile.achievements && Math.round((6000 / dataProfile.trophies) * dataProfile.attackWins);
+  const skillGeneral = (dataProfile.trophies / 6500) / (dataProfile.expLevel * dataProfile.townHallLevel);
+  const skilltemporada = dataProfile.achievements && Math.round((6000 / dataProfile.trophies) / dataProfile.attackWins);
   const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
   const compañerismomensual = dataProfile.donations / dataProfile.received;
   //calificadorde skills
   const buenaskillg = skillGeneral >= 50; //ipuyhyrhrnee
   const buenaskillt = skilltemporada >= 25
-  const buenaskillc = skilldechoro <= 5 //no se cuanto seria el numero aca aca
-  const buenaskillco = compañerismomensual <= 5
+  const buenaskillc = -skilldechoro <= 50 //no se cuanto seria el numero aca aca
+  const buenaskillco = compañerismomensual <= 2
 
   //objets destroyed 
   let wallsdestroyed = dataProfile.achievements && dataProfile.achievements[9] ? dataProfile.achievements[9].value : 0;
@@ -236,11 +236,11 @@ function Calculadora(props) {
                 {<img alt="img" src={images.Wall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
-                {{ thdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Ayuntamientos: {thdestroyed}</p>}
+                {{ thdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Ayunts.: {thdestroyed}</p>}
                 {<img alt="img" src={images.TownHall} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
-                {{ builderhutsdestroyer } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Chozas de constructor: {builderhutsdestroyer}</p>}
+                {{ builderhutsdestroyer } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Builder Huts: {builderhutsdestroyer}</p>}
                 {<img alt="img" src={images.BuilderHut} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
@@ -268,7 +268,7 @@ function Calculadora(props) {
             </div>
             <div class="fila">
               <div class="item">
-                {{ Scattershotsdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Scatter Shots: {Scattershotsdestroyed}</p>}
+                {{ Scattershotsdestroyed } && <p className='txts-aldeas' style={{ marginLeft: "-5px", marginTop: "20px", marginBottom: "35px" }}>Catapultas: {Scattershotsdestroyed}</p>}
                 {<img alt="img" src={images.Scattershot} className="imgs-aldeas" style={{ width: "40px", height: "40px" }} />}
               </div>
               <div class="item">
@@ -301,32 +301,131 @@ function Calculadora(props) {
                     <img alt="troop" src={images.barbarian} style={{ width: "60px", height: "60px" }} />
                     <div className="troop-level">{dataProfile.troops[0].level}</div>
                   </div> </>) : null}
-                {dataProfile.troops[1]?.name === "Archer" ? <img alt="troop" src={images.arquera} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[2]?.name === "Goblin" ? <img alt="troop" src={images.duende} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[3]?.name === "Giant" ? <img alt="troop" src={images.gigante} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[4]?.name === "Wall Breaker" ? <img alt="troop" src={images.rompemuros} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[5]?.name === "Balloon" ? <img alt="troop" src={images.globito} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[6]?.name === "Wizard" ? <img alt="troop" src={images.mago} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[7]?.name === "Healer" ? <img alt="troop" src={images.sanadora} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[8]?.name === "Dragon" ? <img alt="troop" src={images.dragon} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[9]?.name === "P.E.K.K.A" ? <img alt="troop" src={images.pekka} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[10]?.name === "Minion" ? <img alt="troop" src={images.esbirro} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[11]?.name === "Hog Rider" ? <img alt="troop" src={images.monta} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[12]?.name === "Valkyrie" ? <img alt="troop" src={images.valquiria} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[13]?.name === "Golem" ? <img alt="troop" src={images.golem} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[14]?.name === "Witch" ? <img alt="troop" src={images.bruja} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[15]?.name === "Lava Hound" ? <img alt="troop" src={images.sabueso} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[16]?.name === "Bowler" ? <img alt="troop" src={images.bowler} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[17]?.name === "Baby Dragon" ? <img alt="troop" src={images.bebedragon} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[18]?.name === "Miner" ? <img alt="troop" src={images.minero} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Dragon")]?.name === "Electro Dragon" ? <img alt="troop" src={images.electrodragon} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Yeti")]?.name === "Yeti" ? <img alt="troop" src={images.yeti} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Dragon Rider")]?.name === "Dragon Rider" ? <img alt="troop" src={images.montadragon} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Titan")]?.name === "Electro Titan" ? <img alt="troop" src={images.electrotitan} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Ice Golem")]?.name === "Ice Golem" ? <img alt="troop" src={images.icegolem} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Titan")]?.name === "Electro Titan" ? <img alt="troop" src={images.electrotitan} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Headhunter")]?.name === "Headhunter" ? <img alt="troop" src={images.headhunter} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Apprentice Warden")]?.name === "Apprentice Warden" ? <img alt="troop" src={images.aprendiz} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[1]?.name === "Archer" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.arquera} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[1].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[2]?.name === "Goblin" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.duende} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[2].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[3]?.name === "Giant" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.gigante} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[3].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[4]?.name === "Wall Breaker" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.rompemuros} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[4].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[5]?.name === "Balloon" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.globito} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[5].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[6]?.name === "Wizard" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.mago} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[6].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[7]?.name === "Healer" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.sanadora} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[7].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[8]?.name === "Dragon" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.dragon} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[8].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[9]?.name === "P.E.K.K.A" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.pekka} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[9].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[10]?.name === "Minion" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.esbirro} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[10].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[11]?.name === "Hog Rider" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.monta} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[11].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[12]?.name === "Valkyrie" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.valquiria} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[12].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[13]?.name === "Golem" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.golem} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[13].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[14]?.name === "Witch" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.bruja} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[14].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[15]?.name === "Lava Hound" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.sabueso} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[15].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[16]?.name === "Bowler" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.bowler} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[16].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[17]?.name === "Baby Dragon" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.bebedragon} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[17].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[18]?.name === "Miner" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.minero} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[18].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Dragon")]?.name === "Electro Dragon" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.electrodragon} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Dragon")].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Yeti")]?.name === "Yeti" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.yeti} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Yeti")].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Dragon Rider")]?.name === "Dragon Rider" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.montadragon} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Dragon Rider")].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Titan")]?.name === "Electro Titan" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.electrotitan} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Titan")].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Ice Golem")]?.name === "Ice Golem" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.icegolem} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Ice Golem")].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Headhunter")]?.name === "Headhunter" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.headhunter} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Headhunter")].level}</div>
+                  </div> </>) : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Apprentice Warden")]?.name === "Apprentice Warden" ? (
+                  <> <div className="troop-container">
+                    <img alt="troop" src={images.aprendiz} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Apprentice Warden")].level}</div>
+                  </div> </>) : null}
               </div>
               <div className='hechizos'>
                 {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Lightning Spell")]?.name === "Lightning Spell" ?
@@ -334,18 +433,67 @@ function Calculadora(props) {
                     <img alt="troop" src={images.rayo} style={{ width: "60px", height: "60px" }} />
                     <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Lightning Spell")].level}</div></div>
                   </> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Healing Spell")]?.name === "Healing Spell" ? <img alt="troop" src={images.curacion} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Rage Spell")]?.name === "Rage Spell" ? <img alt="troop" src={images.furia} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Jump Spell")]?.name === "Jump Spell" ? <img alt="troop" src={images.salto} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Freeze Spell")]?.name === "Freeze Spell" ? <img alt="troop" src={images.hielo} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Poison Spell")]?.name === "Poison Spell" ? <img alt="troop" src={images.veneno} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Earthquake Spell")]?.name === "Earthquake Spell" ? <img alt="troop" src={images.terremoto} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Haste Spell")]?.name === "Haste Spell" ? <img alt="troop" src={images.aceleracion} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Clone Spell")]?.name === "Clone Spell" ? <img alt="troop" src={images.clon} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Skeleton Spell")]?.name === "Skeleton Spell" ? <img alt="troop" src={images.esqueleto} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Bat Spell")]?.name === "Bat Spell" ? <img alt="troop" src={images.bats} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Invisibility Spell")]?.name === "Invisibility Spell" ? <img alt="troop" src={images.invisibilidad} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Recall Spell")]?.name === "Recall Spell" ? <img alt="troop" src={images.teletransportacion} style={{ width: "60px", height: "60px" }} /> : null}
+
+                {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Healing Spell")]?.name === "Healing Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.curacion} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Healing Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Rage Spell")]?.name === "Rage Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.furia} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Rage Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Jump Spell")]?.name === "Jump Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.salto} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Jump Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Freeze Spell")]?.name === "Freeze Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.hielo} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Freeze Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Poison Spell")]?.name === "Poison Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.veneno} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Poison Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Earthquake Spell")]?.name === "Earthquake Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.terremoto} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Earthquake Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Haste Spell")]?.name === "Haste Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.aceleracion} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Haste Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Clone Spell")]?.name === "Clone Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.clon} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Clone Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Skeleton Spell")]?.name === "Skeleton Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.esqueleto} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Skeleton Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Bat Spell")]?.name === "Bat Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.bats} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Bat Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Invisibility Spell")]?.name === "Invisibility Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.invisibilidad} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Invisibility Spell")].level}</div></div>
+                  </> : null}
+                  {dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Recall Spell")]?.name === "Recall Spell" ?
+                  <> <div className='troop-container'>
+                    <img alt="troop" src={images.teletransportacion} style={{ width: "60px", height: "60px" }} />
+                    <div className="troop-level">{dataProfile.spells[dataProfile.spells.findIndex(obj => obj.name === "Recall Spell")].level}</div></div>
+                  </> : null}
               </div>
               {dataProfile.heroes &&
                 <div className='heroes'>
@@ -354,9 +502,21 @@ function Calculadora(props) {
                       <img alt="rey" src={images.reyBarbaro} style={{ width: "60px", height: "60px" }} />
                       <div className='troop-level'>{dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Barbarian King")].level}</div></div>
                     </>) : null}
-                  {thlvl >= 9 ? <img alt="reina" src={images.reinaArquera} style={{ width: "60px", height: "60px" }} /> : null}
-                  {thlvl >= 11 ? <img alt="centi" src={images.centinela} style={{ width: "60px", height: "60px" }} /> : null}
-                  {thlvl >= 13 ? <img alt="champ" src={images.campeona} style={{ width: "60px", height: "60px" }} /> : null}
+                  {thlvl >= 9 ? (
+                    <> <div className='troop-container'>
+                      <img alt="reina" src={images.reinaArquera} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Archer Queen")].level}</div></div>
+                    </>) : null}
+                  {thlvl >= 11 ? (
+                    <> <div className='troop-container'>
+                      <img alt="reina" src={images.centinela} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Grand Warden")].level}</div></div>
+                    </>) : null}
+                  {thlvl >= 13 ? (
+                    <> <div className='troop-container'>
+                      <img alt="reina" src={images.campeona} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Royal Champion")].level}</div></div>
+                    </>) : null}
                 </div>}
               <div className='mascotas'>
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "L.A.S.S.I")]?.name === "L.A.S.S.I" ?
@@ -420,7 +580,7 @@ function Calculadora(props) {
           )}
         </div>
       </div>
-      <div>
+      <div className='calculadora'>
         <h2>Skill General = {Math.round(skillGeneral)}</h2>
         {buenaskillg ? (
           <p>mejor que la mayoria</p>
