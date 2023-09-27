@@ -112,7 +112,7 @@ function Calculadora(props) {
           <div className='change-tag'>
             <p style={{ marginLeft: "11px", marginTop: "0px" }}>Cambiar jugador:</p>
             <Link to="/">
-              <button class="butons" style={{ marginLeft: "10px" }}>Volver al menu</button>
+              <button className="butons" style={{ marginLeft: "10px" }}>Volver al menu</button>
             </Link>
           </div>
         </div>
@@ -290,8 +290,8 @@ function Calculadora(props) {
             <h1 className='h1-tropas'>Ejército</h1>
           </div>
           <div className='btns'>
-            <button class="butons" onClick={() => mostrarContenido(1)}>Ejército aldea principal</button>
-            <button class="butons" onClick={() => mostrarContenido(2)}>Ejército aldea nocturna</button>
+            <button className="butons" onClick={() => mostrarContenido(1)}>Ejército aldea principal</button>
+            <button className="butons" onClick={() => mostrarContenido(2)}>Ejército aldea nocturna</button>
           </div>
           {mostrarContenido1 && (
             <div className='ejercito-principal'>

@@ -47,6 +47,12 @@ code {
   width: 200px;
   color: #ffffff;
   border-radius: 10px;
+  cursor: pointer; /* Cambia el cursor a una mano */
+  transition: background-color 0.3s ease-in-out;
+}
+.butons:hover {
+  background-color: #f5b05c; /* Cambia el color de fondo a blanco */
+  color: #000; /* Puedes cambiar el color del texto si lo deseas */
 }
 
 .jugador {
@@ -322,7 +328,14 @@ code {
   color: #ffffff;
   height: 30px;
   border-radius: 10px;
+  cursor: pointer; /* Cambia el cursor a una mano */
+  transition: background-color 0.3s ease-in-out;
 }
+.button:hover {
+  background-color: #f5b05c; /* Cambia el color de fondo a blanco */
+  color: #000; /* Puedes cambiar el color del texto si lo deseas */
+}
+
 
 .mimi {
   width: 150px;
