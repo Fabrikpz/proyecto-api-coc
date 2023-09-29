@@ -18,28 +18,33 @@ const pass = process.env.PASSWORD;*/
     await client.login({ email: "fabrisilveyra@gmail.com", password: "fortheemperor"});
 })();
 
+
+let idinput=' '
 //LPRJ008RU 9JLGVYRJ2 jugador maxeado: PPCRRR0 P9QJYV9PU
 app.get(`/getClashOfClansData/%23:input`, async (req, res) => {
     const input = req.params.input;
     const playerTag = `#${input}`;
+    idinput=`${input}`
     try {
         const player = await client.getPlayer(playerTag);
         res.json(player);
     } catch (error) {
         console.error(`Error getting info from API: ${error.message}`);
         res.status(404).json({ reason: 'notFound', message: 'Not found with tag' });
-    }
+   
+    }   
 });
+
 
 const cookies = new Cookies(req, res);
 
-cookies.set('saveuserid', 'input', {
+cookies.set('saveuserid', 'idinput', {
     path: '/calculadora.js',
-    expires: new Date('2025-12-31'), // Expires on December 31, 2023
+    expires: new Date('2025-12-31'), // Expira en "fecha"
     //maxAge: 3600, // Expires in 1 hour
     //secure: true, // Only send over HTTPS
     //httpOnly: true, // Inaccessible to client-side JavaScript
-    sameSite: 'Strict', // Enforce strict same-site policy
+    //sameSite: 'Strict', // Enforce strict same-site policy
   });
 app.listen(port, () => {
     console.log(`Servidor escuchando en el puerto ${port}`);
