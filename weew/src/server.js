@@ -5,9 +5,9 @@ const port = 3500;
 const clashApi = require('clash-of-clans-api');
 const { Client } = require('clashofclans.js');
 const client = new Client();
+const Cookies=require('Cookies')
 /*const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });*/
-
 app.use(express.json());
 app.use(cors());
 
@@ -31,6 +31,16 @@ app.get(`/getClashOfClansData/%23:input`, async (req, res) => {
     }
 });
 
+const cookies = new Cookies(req, res);
+
+cookies.set('saveuserid', 'input', {
+    path: '/calculadora.js',
+    expires: new Date('2025-12-31'), // Expires on December 31, 2023
+    //maxAge: 3600, // Expires in 1 hour
+    //secure: true, // Only send over HTTPS
+    //httpOnly: true, // Inaccessible to client-side JavaScript
+    sameSite: 'Strict', // Enforce strict same-site policy
+  });
 app.listen(port, () => {
     console.log(`Servidor escuchando en el puerto ${port}`);
 });
