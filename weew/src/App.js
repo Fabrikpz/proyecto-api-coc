@@ -26,10 +26,15 @@ function App() {
           </p>
         </div>
         <h3>INGRESE SU ID:</h3>
+
+        
         <input className="mimi" onChange={handleInput} value={input} placeholder="Ingrese su ID"></input><p></p>
         <Link to={`/calculadora/${input}`}>
           <button class="button">Obtener Datos</button>
         </Link>
+
+
+
         <div style={{marginTop:"150px"}}>
           <p>🔥Desarroladores🔥</p>
           <div class="desarolladores">
@@ -42,6 +47,8 @@ function App() {
       </div>
     </div>
   );
+
+
 }
 
 export default App;

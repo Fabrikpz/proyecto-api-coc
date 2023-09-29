@@ -604,7 +604,7 @@ function Calculadora(props) {
         {buenaskillco ? (
           <p>miembro productivo del clan { }</p>
         ) : (
-          <p>no seas garca y dona mas</p>
+          <p>no seas desgraciao y dona mas</p>
         )}
       </div>
     </div>

@@ -34,18 +34,28 @@ app.get(`/getClashOfClansData/%23:input`, async (req, res) => {
    
     }   
 });
+var visito=false
 
+const cookies = new Cookies(req, res);  
 
-const cookies = new Cookies(req, res);
+const lastid=cookies.get('saveuserid', { signed: true }) //setea la cookie
 
-cookies.set('saveuserid', 'idinput', {
-    path: '/calculadora.js',
+cookies.set('saveuserid', idinput.toString(), {
     expires: new Date('2025-12-31'), // Expira en "fecha"
-    //maxAge: 3600, // Expires in 1 hour
-    //secure: true, // Only send over HTTPS
-    //httpOnly: true, // Inaccessible to client-side JavaScript
-    //sameSite: 'Strict', // Enforce strict same-site policy
-  });
+    path: '/App.js',
+    signed: true 
+
+})//guarda el valor de la cookie
+
+
+if (!saveuserid) {
+    res.end(visito==false)
+  } else {
+    
+    res.end(visito==true && saveuserid)
+  }
+
+
 app.listen(port, () => {
     console.log(`Servidor escuchando en el puerto ${port}`);
 });
