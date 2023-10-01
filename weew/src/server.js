@@ -17,7 +17,7 @@ const pass = process.env.PASSWORD;*/
 (async function () {
     await client.login({ email: "fabrisilveyra@gmail.com", password: "fortheemperor"});
 })();
-
+z
 //LPRJ008RU 9JLGVYRJ2 jugador maxeado: PPCRRR0 P9QJYV9PU
 app.get(`/getClashOfClansData/%23:input`, async (req, res) => {
     const input = req.params.input;
