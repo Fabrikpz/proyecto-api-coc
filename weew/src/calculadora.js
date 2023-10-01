@@ -527,13 +527,41 @@ function Calculadora(props) {
                     <img alt="troop" src={images.lassi} style={{ width: "60px", height: "60px" }} />
                     <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "L.A.S.S.I")].level}</div></div>
                   </> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Mighty Yak")]?.name === "Mighty Yak" ? <img alt="troop" src={images.mightyyak} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Owl")]?.name === "Electro Owl" ? <img alt="troop" src={images.electroowl} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Unicorn")]?.name === "Unicorn" ? <img alt="troop" src={images.unicorn} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Phoenix")]?.name === "Phoenix" ? <img alt="troop" src={images.phoenix} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Poison Lizard")]?.name === "Poison Lizard" ? <img alt="troop" src={images.poisonlizard} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Diggy")]?.name === "Diggy" ? <img alt="troop" src={images.diggy} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Frosty")]?.name === "Frosty" ? <img alt="troop" src={images.frosty} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Mighty Yak")]?.name === "Mighty Yak" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.mightyyak} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Mighty Yak")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Owl")]?.name === "Electro Owl" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.electroowl} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electro Owl")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Unicorn")]?.name === "Unicorn" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.unicorn} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Unicorn")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Phoenix")]?.name === "Phoenix" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.phoenix} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Phoenix")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Poison Lizard")]?.name === "Poison Lizard" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.poisonlizard} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Poison Lizard")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Diggy")]?.name === "Diggy" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.diggy} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Diggy")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Frosty")]?.name === "Frosty" ?
+                  <><div className='troop-container'>
+                     <img alt="troop" src={images.frosty} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Frosty")].level}</div></div>
+                  </> : null}
               </div>
               <div className='maquinas'>
                 {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Wall Wrecker")]?.name === "Wall Wrecker" ?
@@ -541,12 +569,36 @@ function Calculadora(props) {
                     <img alt="troop" src={images.rompemurosmaq} style={{ width: "60px", height: "60px" }} />
                     <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Wall Wrecker")].level}</div></div>
                   </> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Battle Blimp")]?.name === "Battle Blimp" ? <img alt="troop" src={images.dirigible} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Stone Slammer")]?.name === "Stone Slammer" ? <img alt="troop" src={images.lanzarocasMaq} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Siege Barracks")]?.name === "Siege Barracks" ? <img alt="troop" src={images.asedio} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Log Launcher")]?.name === "Log Launcher" ? <img alt="troop" src={images.lanzatroncos} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Flame Flinger")]?.name === "Flame Flinger" ? <img alt="troop" src={images.catapulta} style={{ width: "60px", height: "60px" }} /> : null}
-                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Battle Drill")]?.name === "Battle Drill" ? <img alt="troop" src={images.excavadora} style={{ width: "60px", height: "60px" }} /> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Battle Blimp")]?.name === "Battle Blimp" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.dirigible} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Battle Blimp")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Stone Slammer")]?.name === "Stone Slammer" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.lanzarocasMaq} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Stone Slammer")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Siege Barracks")]?.name === "Siege Barracks" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.asedio} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Siege Barracks")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Log Launcher")]?.name === "Log Launcher" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.lanzatroncos} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Log Launcher")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Flame Flinger")]?.name === "Flame Flinger" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.catapulta} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Flame Flinger")].level}</div></div>
+                  </> : null}
+                {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Battle Drill")]?.name === "Battle Drill" ?
+                  <><div className='troop-container'>
+                    <img alt="troop" src={images.excavadora} style={{ width: "60px", height: "60px" }} />
+                    <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Battle Drill")].level}</div></div>
+                  </> : null}
               </div>
             </div>
           )}
@@ -560,15 +612,51 @@ function Calculadora(props) {
                       <img alt="troop" src={images.ragedbarbarian} style={{ width: "60px", height: "60px" }} />
                       <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Raged Barbarian")].level}</div></div>
                     </> : null}
-                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Sneaky Archer")]?.name === "Sneaky Archer" ? <img alt="troop" src={images.sneakyarcher} style={{ width: "60px", height: "60px" }} /> : null}
-                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Boxer Giant")]?.name === "Boxer Giant" ? <img alt="troop" src={images.boxergiant} style={{ width: "60px", height: "60px" }} /> : null}
-                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Bomber")]?.name === "Bomber" ? <img alt="troop" src={images.bomber} style={{ width: "60px", height: "60px" }} /> : null}
-                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Cannon Cart")]?.name === "Cannon Cart" ? <img alt="troop" src={images.cannoncart} style={{ width: "60px", height: "60px" }} /> : null}
-                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Night Witch")]?.name === "Night Witch" ? <img alt="troop" src={images.nightwitch} style={{ width: "60px", height: "60px" }} /> : null}
-                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Drop Ship")]?.name === "Drop Ship" ? <img alt="troop" src={images.dropship} style={{ width: "60px", height: "60px" }} /> : null}
-                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Power P.E.K.K.A")]?.name === "Power P.E.K.K.A" ? <img alt="troop" src={images.powerpekka} style={{ width: "60px", height: "60px" }} /> : null}
-                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Hog Glider")]?.name === "Hog Glider" ? <img alt="troop" src={images.hogglider} style={{ width: "60px", height: "60px" }} /> : null}
-                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electrofire Wizard")]?.name === "Electrofire Wizard" ? <img alt="troop" src={images.electrofirewizard} style={{ width: "60px", height: "60px" }} /> : null}
+                  {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Sneaky Archer")]?.name === "Sneaky Archer" ?
+                    <> <div className='troop-container'>
+                      <img alt="troop" src={images.sneakyarcher} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Sneaky Archer")].level}</div></div>
+                    </> : null}
+                    {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Boxer Giant")]?.name === "Boxer Giant" ?
+                    <> <div className='troop-container'>
+                      <img alt="troop" src={images.boxergiant} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Boxer Giant")].level}</div></div>
+                    </> : null}
+                    {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Bomber")]?.name === "Bomber" ?
+                    <> <div className='troop-container'>
+                      <img alt="troop" src={images.bomber} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Bomber")].level}</div></div>
+                    </> : null}
+                    {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Cannon Cart")]?.name === "Cannon Cart" ?
+                    <> <div className='troop-container'>
+                      <img alt="troop" src={images.cannoncart} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Cannon Cart")].level}</div></div>
+                    </> : null}
+                    {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Night Witch")]?.name === "Night Witch" ?
+                    <> <div className='troop-container'>
+                      <img alt="troop" src={images.nightwitch} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Night Witch")].level}</div></div>
+                    </> : null}
+                    {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Drop Ship")]?.name === "Drop Ship" ?
+                    <> <div className='troop-container'>
+                      <img alt="troop" src={images.dropship} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Drop Ship")].level}</div></div>
+                    </> : null}
+                    {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Power P.E.K.K.A")]?.name === "Power P.E.K.K.A" ?
+                    <> <div className='troop-container'>
+                      <img alt="troop" src={images.powerpekka} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Power P.E.K.K.A")].level}</div></div>
+                    </> : null}
+                    {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Hog Glider")]?.name === "Hog Glider" ?
+                    <> <div className='troop-container'>
+                      <img alt="troop" src={images.hogglider} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Hog Glider")].level}</div></div>
+                    </> : null}
+                    {dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electrofire Wizard")]?.name === "Electrofire Wizard" ?
+                    <> <div className='troop-container'>
+                      <img alt="troop" src={images.electrofirewizard} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.troops[dataProfile.troops.findIndex(obj => obj.name === "Electrofire Wizard")].level}</div></div>
+                    </> : null}
                 </div>
                 <div className='heroes'>
                   {dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Machine")]?.name === "Battle Machine" ?
@@ -576,7 +664,11 @@ function Calculadora(props) {
                       <img alt="troop" src={images.battlemachine} style={{ width: "60px", height: "60px" }} />
                       <div className='troop-level'>{dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Machine")].level}</div></div>
                     </> : null}
-                  {dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Copter")]?.name === "Battle Copter" ? <img alt="troop" src={images.battlecopter} style={{ width: "60px", height: "60px" }} /> : null}
+                    {dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Copter")]?.name === "Battle Copter" ?
+                    <><div className='troop-container'>
+                      <img alt="troop" src={images.battlecopter} style={{ width: "60px", height: "60px" }} />
+                      <div className='troop-level'>{dataProfile.heroes[dataProfile.heroes.findIndex(obj => obj.name === "Battle Copter")].level}</div></div>
+                    </> : null}
                 </div>
               </div>
             </div>
