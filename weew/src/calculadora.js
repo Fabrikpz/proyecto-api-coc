@@ -22,7 +22,9 @@ function Calculadora(props) {
   let oroCapital = dataProfile.achievements && dataProfile.achievements[41] ? dataProfile.achievements[41].value : 0;
 
   const skillGeneral = (dataProfile.trophies) / ((dataProfile.expLevel / dataProfile.townHallLevel));
-  const skilltemporada = dataProfile.achievements && Math.round(( victoriasAtaqueTotales) / dataProfile.trophies);
+
+  const skilltemporada = dataProfile.achievements && Math.round(100-(dataProfile.attackWins/210)*100);
+
   const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
   const compañerismomensual = (tropasDonadasTotal+maquinasDonadas+hechizosDonados) / dataProfile.received;
   //calificadorde skills
