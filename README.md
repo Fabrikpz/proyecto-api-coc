@@ -10,9 +10,7 @@ Este es un proyecto escolar desarrollado en React que te permite insertar tu ID 
 
 ## Cómo Usar
 
-1. Clona este repositorio a tu máquina local.
-2. Abre una terminal en la carpeta del proyecto y ejecuta `npm install` para instalar las dependencias.
-3. Ejecuta `npm start` para iniciar la aplicación en tu navegador.
+1. Entra a https://proyecto-api-coc.vercel.app/
 4. En la aplicación, inserta tu ID de Clash of Clans y explora tus estadísticas y habilidades.
 
 ## Contribuciones
