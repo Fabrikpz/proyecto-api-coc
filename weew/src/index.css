@@ -370,10 +370,12 @@ code {
 }
 
 .calculadora{
-  position: absolute;
-  border-radius: 10px;
-  border: 2px solid rgb(177, 41, 7);
-  font-size: 40px;
+  position: relative;
+  height: auto;
+  width:auto;
+  border-radius: 125px;
+  border: 75px solid rgb(0, 0, 0);
+  font-size: 20px;
   color:rgb(255, 255, 255);
-  background-color: rgb(0, 0, 0);
+  background-color:#ff8e00;
 }

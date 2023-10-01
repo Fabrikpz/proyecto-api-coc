@@ -21,16 +21,17 @@ function Calculadora(props) {
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
   let oroCapital = dataProfile.achievements && dataProfile.achievements[41] ? dataProfile.achievements[41].value : 0;
 
-  const skillGeneral = (dataProfile.trophies / 6500) / (dataProfile.expLevel * dataProfile.townHallLevel);
-  const skilltemporada = dataProfile.achievements && Math.round((6000 / dataProfile.trophies) / dataProfile.attackWins);
+  const skillGeneral = (dataProfile.trophies) / ((dataProfile.expLevel / dataProfile.townHallLevel));
+  const skilltemporada = dataProfile.achievements && Math.round(( victoriasAtaqueTotales) / dataProfile.trophies);
   const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
-  const compañerismomensual = dataProfile.donations / dataProfile.received;
+  const compañerismomensual = (tropasDonadasTotal+maquinasDonadas+hechizosDonados) / dataProfile.received;
   //calificadorde skills
-  const buenaskillg = skillGeneral >= 50; //ipuyhyrhrnee
-  const buenaskillt = skilltemporada >= 25
-  const buenaskillc = -skilldechoro <= 50 //no se cuanto seria el numero aca aca
+  const buenaskillg = skillGeneral >= 25; //ipuyhyrhrnee
+  const buenaskillt = skilltemporada <= 25
+  const buenaskillc = -skilldechoro >= 50 //no se cuanto seria el numero aca aca
   const buenaskillco = compañerismomensual <= 2
-
+  const infprev= compañerismomensual >=1000
+   
   //objets destroyed 
   let wallsdestroyed = dataProfile.achievements && dataProfile.achievements[9] ? dataProfile.achievements[9].value : 0;
   let thdestroyed = dataProfile.achievements && dataProfile.achievements[10] ? dataProfile.achievements[10].value : 0;
@@ -581,31 +582,39 @@ function Calculadora(props) {
         </div>
       </div>
       <div className='calculadora'>
-        <h2>Skill General = {Math.round(skillGeneral)}</h2>
-        {buenaskillg ? (
-          <p>mejor que la mayoria</p>
-        ) : (
-          <p>estas mas o menos</p>
-        )}
-        <h3>Skill Temporal = {Math.round(skilltemporada)}</h3>
-        {buenaskillt ? (
-          <p>
-            te mantienes al dia
-          </p>
-        ) : (<p>no te mantienes al dia</p>
-        )}
-        <h4> Skill Choreal = {Math.round(skilldechoro)}</h4>
-        {buenaskillc ? (
-          <p>estas como para ser politico { }</p>
-        ) : (
-          <p>buen ciudadano que no roba</p>
-        )}
-        <h4> Skill Donadora = {Math.round(compañerismomensual)}</h4>
-        {buenaskillco ? (
-          <p>miembro productivo del clan { }</p>
-        ) : (
-          <p>no seas garca y dona mas</p>
-        )}
+      <h2>Skill General = {Math.round(skillGeneral)}</h2>
+{buenaskillg ? (
+  <p>mejor que la mayoria</p>
+) : (
+  <p>estas mal</p>
+)}
+<h3>Skill Temporal = {Math.round(skilltemporada)}</h3>
+{buenaskillt ? (
+  <p>te mantienes al dia</p>
+) : (
+  <p>no te mantienes al dia</p>
+)}
+<h4> Skill Choreal = {Math.round(skilldechoro)}</h4>
+{buenaskillc ? (
+  <p>estas como para ser politico { }</p>
+) : (
+  <p>buen ciudadano que no roba</p>
+)}
+<h4> Skill Donadora = {Math.round(compañerismomensual)}</h4>
+{compañerismomensual <= 0 ? (
+  <p>nadie es buena persona en tu clan ¯(ツ)/¯</p>
+) : 
+infprev ? (
+    <p>si donas pero no te donan a vos</p>
+  ) : 
+(
+  buenaskillco ? (
+    <p>miembro productivo del clan { }</p>
+  ) : (
+    <p>dona mas</p>
+  )
+)}
+
       </div>
     </div>
   );
