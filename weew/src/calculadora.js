@@ -23,7 +23,7 @@ function Calculadora(props) {
 
   const skillGeneral = (dataProfile.trophies) / ((dataProfile.expLevel / dataProfile.townHallLevel));
 
-  const skilltemporada = dataProfile.achievements && Math.round(100-(dataProfile.attackWins/210)*100);
+  const skilltemporada = dataProfile.achievements && Math.round((dataProfile.attackWins/210)*100);
 
   const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
   const compañerismomensual = (tropasDonadasTotal+maquinasDonadas+hechizosDonados) / dataProfile.received;
