@@ -21,7 +21,7 @@ function Calculadora(props) {
   let maquinasDonadas = dataProfile.achievements && dataProfile.achievements[40] ? dataProfile.achievements[40].value : 0;
   let oroCapital = dataProfile.achievements && dataProfile.achievements[41] ? dataProfile.achievements[41].value : 0;
 
-  const skillGeneral = (dataProfile.trophies) / ((dataProfile.expLevel / dataProfile.townHallLevel));
+  const skillGeneral = (dataProfile.trophies / 6500) * 100;
 
   const skilltemporada = dataProfile.achievements && Math.round((dataProfile.attackWins/210)*100);
 

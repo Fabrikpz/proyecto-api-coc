@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+/*import React, { useState } from 'react';
 
 function Barra() {
   const [input, setInput] = useState('');
@@ -31,7 +31,4 @@ function Barra() {
   );
 }
 
-export default Barra;
-
-
-
+export default Barra;*/

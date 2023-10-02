@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import Calculadora from './calculadora';
 import * as images from './images.js';
 
 const developers = {
@@ -10,7 +9,6 @@ const developers = {
 
 function App() {
   const [input, setInput] = useState('');
-  //const [dataProfile, setDataProfile] = useState({});
 
   const handleInput = (event) => {
     setInput(event.target.value);
