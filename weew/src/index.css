@@ -337,7 +337,7 @@ code {
 }
 
 
-.mimi {
+.input {
   width: 150px;
   height: 12px;
   padding: 10px;
@@ -378,4 +378,15 @@ code {
   font-size: 20px;
   color:rgb(255, 255, 255);
   background-color:#ff8e00;
+}
+
+.butonreturn{
+  background-color: #ff8e00;
+  width: 180px;
+  color: #ffffff;
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer; /* Cambia el cursor a una mano */
+  transition: background-color 0.3s ease-in-out;
+  
 }

@@ -113,10 +113,6 @@ function Calculadora(props) {
             </div>
           </div>
           <div className='change-tag'>
-            <p style={{ marginLeft: "11px", marginTop: "0px" }}>Cambiar jugador:</p>
-            <Link to="/">
-              <button className="butons" style={{ marginLeft: "10px" }}>Volver al menu</button>
-            </Link>
           </div>
         </div>
 
@@ -710,6 +706,9 @@ infprev ? (
 )}
 
       </div>
+      <Link to="/">
+              <button className="butonreturn" style={{ marginLeft: "10px" }}>Volver al menu</button>
+            </Link>
     </div>
   );
 }

@@ -24,7 +24,7 @@ function App() {
           </p>
         </div>
         <h3>INGRESE SU ID:</h3>
-        <input className="mimi" onChange={handleInput} value={input} placeholder="Ingrese su ID"></input><p></p>
+        <input className="input" onChange={handleInput} value={input} placeholder="Ingrese su ID"></input><p></p>
         <Link to={`/calculadora/${input}`}>
           <button class="button">Obtener Datos</button>
         </Link>
