@@ -22,19 +22,16 @@ function Calculadora(props) {
   let oroCapital = dataProfile.achievements && dataProfile.achievements[41] ? dataProfile.achievements[41].value : 0;
 
   const skillGeneral = (dataProfile.trophies / 6500) * 100;
-
   const skilltemporada = dataProfile.achievements && Math.round((dataProfile.attackWins/210)*100);
-
   const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
   const compañerismomensual = dataProfile.donations / dataProfile.received;
-  //calificadorde skills
-  const buenaskillg = skillGeneral >= 50; //ipuyhyrhrnee
+  //calificador de skills
+  const buenaskillg = skillGeneral >= 50;
   const buenaskillt = skilltemporada >= 30;
-  const buenaskillc = -skilldechoro <= 50 //no se cuanto seria el numero aca aca
+  const buenaskillc = skilldechoro >= 50
   const buenaskillco = compañerismomensual >= 1
   const infprev= compañerismomensual >=100000
-  
-  //objets destroyed 
+  //objects destroyed 
   let wallsdestroyed = dataProfile.achievements && dataProfile.achievements[9] ? dataProfile.achievements[9].value : 0;
   let thdestroyed = dataProfile.achievements && dataProfile.achievements[10] ? dataProfile.achievements[10].value : 0;
   let builderhutsdestroyer = dataProfile.achievements && dataProfile.achievements[11] ? dataProfile.achievements[11].value : 0;
