@@ -29,7 +29,7 @@ function Calculadora(props) {
   const compañerismomensual = ((tropasDonadasTotal+maquinasDonadas+hechizosDonados)/3) / (dataProfile.received*3);
   //calificadorde skills
   const buenaskillg = skillGeneral >= 50; //ipuyhyrhrnee
-  const buenaskillt = skilltemporada <= 25
+  const buenaskillt = skilltemporada >= 30;
   const buenaskillc = -skilldechoro <= 50 //no se cuanto seria el numero aca aca
   const buenaskillco = compañerismomensual >= 1
   const infprev= compañerismomensual >=100000
