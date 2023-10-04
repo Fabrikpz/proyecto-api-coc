@@ -28,11 +28,11 @@ function Calculadora(props) {
   const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
   const compañerismomensual = (tropasDonadasTotal+maquinasDonadas+hechizosDonados) / dataProfile.received;
   //calificadorde skills
-  const buenaskillg = skillGeneral >= 25; //ipuyhyrhrnee
+  const buenaskillg = skillGeneral >= 50; //ipuyhyrhrnee
   const buenaskillt = skilltemporada <= 25
   const buenaskillc = -skilldechoro >= 50 //no se cuanto seria el numero aca aca
-  const buenaskillco = compañerismomensual <= 2
-  const infprev= compañerismomensual >=1000
+  const buenaskillco = compañerismomensual <= 1
+  const infprev= compañerismomensual >=100000
    
   //objets destroyed 
   let wallsdestroyed = dataProfile.achievements && dataProfile.achievements[9] ? dataProfile.achievements[9].value : 0;
@@ -691,8 +691,11 @@ function Calculadora(props) {
   <p>buen ciudadano que no roba</p>
 )}
 <h4> Skill Donadora = {Math.round(compañerismomensual)}</h4>
-{compañerismomensual <= 0 ? (
-  <p>nadie es buena persona en tu clan ¯(ツ)/¯</p>
+{compañerismomensual == NaN ? (
+  <p>nadie es buena persona en tu clan (incluyendote) ¯\_(ツ)_/¯</p>
+) : 
+compañerismomensual == 0 ? (
+  <p>no donas pero si te donan.... me das asco</p>
 ) : 
 infprev ? (
     <p>si donas pero no te donan a vos</p>
