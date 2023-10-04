@@ -26,12 +26,12 @@ function Calculadora(props) {
   const skilltemporada = dataProfile.achievements && Math.round((dataProfile.attackWins/210)*100);
 
   const skilldechoro = ((oroRobado + elixirRobado) / (elixirOscuroRobado * 2)) / 2;
-  const compañerismomensual = (tropasDonadasTotal+maquinasDonadas+hechizosDonados) / dataProfile.received;
+  const compañerismomensual = ((tropasDonadasTotal+maquinasDonadas+hechizosDonados)/3) / (dataProfile.received*3);
   //calificadorde skills
   const buenaskillg = skillGeneral >= 50; //ipuyhyrhrnee
   const buenaskillt = skilltemporada <= 25
-  const buenaskillc = -skilldechoro >= 50 //no se cuanto seria el numero aca aca
-  const buenaskillco = compañerismomensual <= 1
+  const buenaskillc = -skilldechoro <= 50 //no se cuanto seria el numero aca aca
+  const buenaskillco = compañerismomensual >= 1
   const infprev= compañerismomensual >=100000
    
   //objets destroyed 
@@ -702,7 +702,7 @@ infprev ? (
   ) : 
 (
   buenaskillco ? (
-    <p>miembro productivo del clan { }</p>
+    <p>miembro productivo del clan </p>
   ) : (
     <p>dona mas</p>
   )
